@@ -31,9 +31,11 @@
 
         @include('tipos_transporte')
 
-        @include('warehouse')
+        @include('consigue_viaje')
 
-        @include('service_calculate')
+        @include('galeria')
+
+        @include('unete_familia')
 
         @include('our_clients')
 

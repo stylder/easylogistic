@@ -36,16 +36,7 @@
             </div>
         </div>
 
-        <!-- Data API:
-             data-height="500" height of the map in pixels
-             data-address="Your address" string
-             data-zoom="number" to control map zoom when loaded
-             data-disable-controls="false/true" enable/disable map controls like pan, zoom, etc.
-             data-scrollwheel="true/false" enable/disable mouse scroll wheel zoom
-             data-marker="path_to_your_image" path to custom marker image
-             data-marker-title=" Your title" appears on marker hover
-             data-styles="[array]" you can adjust the look and feel of your map. Recommend to use https://snazzymaps.com
-         -->
+
         <div class="google-map"
              data-address="New York, USA"
              data-height="450"
