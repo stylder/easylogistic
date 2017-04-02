@@ -37,7 +37,7 @@
 
         @include('unete_familia')
 
-        @include('our_clients')
+        @include('registro_unidad')
 
         @include('testimonios')
 
@@ -54,7 +54,6 @@
 
 
 </div><!-- .page-wrapper -->
-
     @include('import_scripts')
 
 </body><!-- <body> -->
