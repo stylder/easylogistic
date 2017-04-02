@@ -26,3 +26,4 @@
 <script src="{{asset('js/scripts.js')}}"></script>
 <script src="{{asset('js/angular.min.js')}}"></script>
 <script src="{{asset('angular/hello.js')}}"></script>
+<script src="{{asset('js/ng-flow-standalone.js')}}"></script>

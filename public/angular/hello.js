@@ -35,8 +35,11 @@ function MyCtrl($scope) {
     };
 
     $scope.deleteRow = function(rowNo) {
-        $scope.languages.splice(rowNo, 1);
-        console.log(rowNo);
+        if (rowNo != null){
+            $scope.languages.splice(rowNo, 1);
+            console.log(rowNo);
+        }
+
 
     };
 
