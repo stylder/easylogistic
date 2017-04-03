@@ -1,7 +1,7 @@
-<section class="fw-section padding-top-3x" style="background-image: url(img/home/38.jpg)">
-    <div class="overlay" style="background-color: rgba(33, 33, 33, .78);"></div>
+<section class="fw-section padding-top-3x" style="background-image: url(img/home/38.jpg)" >
+    <div class="overlay" style="background-color: rgba(33, 33, 33, .78);" ></div>
 
-    <div class="container">
+    <div class="container"  ng-controller="operadoresController">
         <div class="row">
             <h1 class="text-light text-center">
                 Consigue tu viaje
@@ -11,16 +11,26 @@
                 <div class="row">
                     <div class="col-md-4">
                         <h5 class="text-light">Estado Origen</h5>
-                        <input type="text" class="form-control" placeholder="Estado">
+
+                        <select ng-model="estado_origen" ng-change="cambioEstadoOrigen()">
+                            <option ng-repeat="estado in estados"
+                                    value=@{{estado.id_estado}}>@{{estado.estado}}
+                            </option>
+                        </select>
+
                     </div>
 
+                    @{{ municipios }}
                     <div class="col-md-4">
                         <h5 class="text-light">Municipio Origen</h5>
-                        <input type="text" class="form-control" placeholder="Municipio">
+                        <select ng-model="municipio_origen">
+                            <option ng-repeat="municipios in municipios_origen" value=@{{municipios.id_municipio}}>@{{municipios.municipio}}</option>
+                        </select>
                     </div>
                     <div class="col-md-4">
                         <h5 class="text-light">Fecha Salida</h5>
-                        <input type="text" class="form-control" placeholder="Fecha Salida">
+                        @{{ fecha_salida}}
+                        <input type="text" class="form-control datepicker" ng-model="fecha_salida" placeholder="Fecha Salida">
                     </div>
 
                 </div>
@@ -30,16 +40,23 @@
                 <div class="row">
                     <div class="col-md-4">
                         <h5 class="text-light">Estado Destino</h5>
-                        <input type="text" class="form-control" placeholder="Estado">
+                        <select ng-model="estado_destino" ng-change="cambioEstadoDestino()">
+                            <option ng-repeat="estado in estados"
+                                    value=@{{estado.id_estado}}>@{{estado.estado}}
+                            </option>
+                        </select>
                     </div>
 
                     <div class="col-md-4">
                         <h5 class="text-light">Municipio Destino</h5>
-                        <input type="text" class="form-control" placeholder="Municipio">
+                        <select ng-model="municipio_destino">
+                            <option ng-repeat="municipios in municipios_destino" value=@{{municipios.id_municipio}}>@{{municipios.municipio}}</option>
+                        </select>
                     </div>
                     <div class="col-md-4">
                         <h5 class="text-light">Fecha Llegada</h5>
-                        <input type="text" class="form-control" placeholder="Fecha Salida">
+                        @{{ fecha_llegada}}
+                        <input type="text" class="form-control datepicker" ng-model="fecha_llegada" placeholder="Fecha Llegada">
                     </div>
 
                 </div>
@@ -71,3 +88,5 @@
         </div>
     </div>
 </section>
+
+

@@ -1,5 +1,5 @@
-<section class="fw-section padding-top-3x padding-bottom-2x" ng-app="myApp">
-    <div class="container " ng-controller="MyCtrl">
+<section class="fw-section padding-top-3x padding-bottom-2x">
+    <div class="container " ng-controller="unidadesController">
         <h2 class="block-title text-center">
             Registra tus unidades
         </h2>

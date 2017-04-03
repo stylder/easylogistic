@@ -30,3 +30,7 @@
 <!--Modernizr / Detectizr-->
 <script src="{{asset('js/vendor/modernizr.custom.js')}}"></script>
 <script src="{{asset('js/vendor/detectizr.min.js')}}"></script>
+
+<link href="{{asset('css/classic.css')}}" rel="stylesheet" media="screen">
+
+<link href="{{asset('css/classic.date.css')}}" rel="stylesheet" media="screen">
