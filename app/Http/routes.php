@@ -15,8 +15,11 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/api/v1/estados/', 'ApiController@estados');
-Route::get('/api/v1/municipios/{id?}', 'ApiController@municipios');
+Route::any('imgflow', 'ImgAPIController@flow');
+
+Route::get('/api/estados/', 'ApiController@estados');
+Route::get('/api/municipios/{id?}', 'ApiController@municipios');
+
 #Route::post('/api/v1/employees', 'Employees@store');
 #Route::post('/api/v1/employees/{id}', 'Employees@update');
 #Route::delete('/api/v1/employees/{id}', 'Employees@destroy');

@@ -1,6 +1,6 @@
-var app = angular.module('app', []);
+var app = angular.module('app', ['flow']);
 
-app.constant('API_URL', 'http://localhost:8000/api/v1/');
+app.constant('API_URL', 'http://localhost:8000/api/');
 
 app.directive('selectLast', function () {
     return {
@@ -18,6 +18,7 @@ app.directive('selectLast', function () {
 
 
 app.controller('unidadesController', function MyCtrl($scope) {
+
     $scope.languages = [];
 
     $scope.languages.push($scope.nativeLanguage);
@@ -37,9 +38,8 @@ app.controller('unidadesController', function MyCtrl($scope) {
             $scope.languages.splice(rowNo, 1);
             console.log(rowNo);
         }
-
-
     };
+
 });
 
 app.controller('operadoresController', function ($scope,$http,API_URL) {
@@ -57,7 +57,7 @@ app.controller('operadoresController', function ($scope,$http,API_URL) {
                 $scope.municipios_origen=[];
                 $scope.municipios_origen= response.data;
             });
-    }
+    };
 
     $scope.cambioEstadoDestino = function(){
         $http.get(API_URL+"municipios/"+$scope.estado_destino)
@@ -65,7 +65,7 @@ app.controller('operadoresController', function ($scope,$http,API_URL) {
                 $scope.municipios_destino=[];
                 $scope.municipios_destino= response.data;
             });
-    }
+    };
 
 });
 

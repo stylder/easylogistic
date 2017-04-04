@@ -27,19 +27,25 @@
 
     </div>
 
-    <div class="">
 
-        <div class="">
-            <div flow-init flow-files-submitted="$flow.upload()">
-                <div class="drop" flow-drop ng-class="dropClass">
-                    <span class="btn btn-default" flow-btn>Subir imagen</span>
-                    <span class="btn btn-default" flow-btn flow-directory ng-show="$flow.supportDirectory">Subir carpeta</span>
-                    <b>ó</b>
-                    Arrastra las imagenes aquí.
-                </div>
-            </div>
+    <div flow-init="{target: '/public'}"
+         flow-files-submitted="$flow.upload()"
+         flow-file-success="$file.msg = $message">
+
+        <div class="drop" flow-drop ng-class="dropClass">
+            <span class="btn btn-default" flow-btn>Subir imagen</span>
+            <span class="btn btn-default" flow-btn flow-directory ng-show="$flow.supportDirectory">Subir carpeta</span>
+            <b>ó</b>
+            Arrastra las imagenes aquí.
         </div>
 
+        <table>
+            <tr ng-repeat="file in $flow.files">
+                <td>{{$index+1}}</td>
+                <td>{{file.name}}</td>
+                <td>{{file.msg}}</td>
+            </tr>
+        </table>
     </div>
 
 
