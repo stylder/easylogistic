@@ -58,7 +58,7 @@ app.controller('unidadesController', function MyCtrl($scope,$http, API_URL) {
 
 
     function setFileName(flow_files) {
-        vm.image = vm.image_root + flow_files[0].name;
+        $scope.image = $scope.image_root + flow_files[0].name;
     }
 
     function upload(files, event, flow) {

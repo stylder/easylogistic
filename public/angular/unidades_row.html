@@ -32,30 +32,86 @@
 
     </div>
 
-
-    <div flow-init="{
-                                            target: '/images/upload/' + 1, singleFile: true, testChunks: true,
-                                            query: {  'model_class_path': 'App\\Contact', 'path': 'images/contacts'}
-                                        }"
+    {{image}}
 
 
+    <div flow-init="{target: '/images/upload/' + 1, testChunks: true,
+                     query: {  'model_class_path': 'App\\Operador', 'path': 'images/contacts'}}"
          flow-files-submitted="$flow.upload()"
          flow-file-success="$file.msg = $message">
 
-        <div class="drop" flow-drop ng-class="dropClass">
+        <div class="drop" flow-drop ng-class="dropClass" flow-drag-enter="style={border:'4px solid green'}" flow-drag-leave="style={}">
             <span class="btn btn-default" flow-btn>Subir imagen</span>
             <span class="btn btn-default" flow-btn flow-directory ng-show="$flow.supportDirectory">Subir carpeta</span>
             <b>ó</b>
             Arrastra las imagenes aquí.
         </div>
 
-        <table>
+        <div class="row">
+            <div class="col-md-3" ng-repeat="file in $flow.files">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="loader"></div>
+                        <img  class="img-responsive img-thumbnail" src="{{image_root+file.name}}" alt="">
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+
+        <table class="table table-hover table-bordered table-striped" flow-transfers>
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Image</th>
+                <th>Size</th>
+                <th>Relative Path</th>
+                <th>Unique Identifier</th>
+                <th>#Chunks</th>
+                <th>Progress</th>
+                <th>Paused</th>
+                <th>Uploading</th>
+                <th>Completed</th>
+                <th>Settings</th>
+            </tr>
+            </thead>
+            <tbody>
             <tr ng-repeat="file in $flow.files">
                 <td>{{$index+1}}</td>
-                <td>{{file.name}}</td>
-                <td>{{file.msg}}</td>
+                <td>
+                    <img src="{{image_root+file.name}}" alt="">
+                </td>
+                <td>{{file.size}}</td>
+                <td>{{file.relativePath}}</td>
+                <td>{{file.uniqueIdentifier}}</td>
+                <td>{{file.chunks.length}}</td>
+                <td>{{file.progress()}}</td>
+                <td>{{file.paused}}</td>
+                <td>{{file.isUploading()}}</td>
+                <td>{{file.isComplete()}}</td>
+                <td>
+                    <div class="btn-group">
+                        <a class="btn btn-mini btn-warning" ng-click="file.pause()" ng-hide="file.paused">
+                            Pause
+                        </a>
+                        <a class="btn btn-mini btn-warning" ng-click="file.resume()" ng-show="file.paused">
+                            Resume
+                        </a>
+                        <a class="btn btn-mini btn-danger" ng-click="file.cancel()">
+                            Cancel
+                        </a>
+                        <a class="btn btn-mini btn-info" ng-click="file.retry()" ng-show="file.error">
+                            Retry
+                        </a>
+                    </div>
+                </td>
             </tr>
+            </tbody>
         </table>
+
     </div>
 
 

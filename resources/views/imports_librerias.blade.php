@@ -34,3 +34,4 @@
 <link href="{{asset('css/classic.css')}}" rel="stylesheet" media="screen">
 
 <link href="{{asset('css/classic.date.css')}}" rel="stylesheet" media="screen">
+<link href="{{asset('css/progress.css')}}" rel="stylesheet" media="screen">
