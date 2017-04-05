@@ -61,12 +61,12 @@
 
                 <div class="row">
                     <div class="col-md-4">
-                        <h5 class="text-light">Tipo Transporte</h5>
-                        <select>
-                            <option value="volvo">Volvo</option>
-                            <option value="saab">Saab</option>
-                            <option value="mercedes">Mercedes</option>
-                            <option value="audi">Audi</option>
+                        <h5 class="text-light">Tipo Unidad</h5>
+                        <select ng-model="tipo_unidad">
+                            <option ng-repeat="unidad in tipo_unidades"
+                                    value=@{{unidad.id}}>
+                                @{{unidad.unidad}}
+                            </option>
                         </select>
                     </div>
                     <div class="col-md-8">

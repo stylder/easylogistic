@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Estado;
 use App\Municipio;
+use App\TipoUnidad;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -18,9 +19,14 @@ class ApiController extends Controller
      */
     public function estados()
     {
-        #return Municipio::all();
         return Estado::all();
     }
+
+    public function tipo_unidad()
+    {
+        return TipoUnidad::all();
+    }
+
 
     /**
      * Display the specified resource.

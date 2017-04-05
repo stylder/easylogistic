@@ -2,15 +2,95 @@
 
 namespace App\Http\Controllers;
 
-use CokeCancino\LaravelFlow\Facades\Flow;
-use Faker\Provider\Uuid;
+use App\Imagen;
+use Flow\Config;
+use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
-
-use App\Http\Requests;
-use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Response;
 
 class ImgAPIController extends Controller
 {
 
+    public $model_id;
+    public $model_class_path;
+    public $destination_path;
+    public $filename;
+
+
+    public $config;
+
+    public function uploadFile(Request $request, $model_id = false)
+    {
+
+        try
+        {
+
+            $this->model_id         = $model_id;
+
+            $model_class_path       = $this->getClassName($request);
+
+            $path                   = $this->getImagePublicDestinationPath($request);
+
+            $this->model_class_path = $model_class_path;
+
+            $this->destination_path = $path;
+
+            $this->config = new Config(array(
+                'tempDir' => storage_path('chunks_temp_folder')
+            ));
+
+            $this->filename = Input::get('flowFilename');
+
+            $this->saveImagable();
+
+            $flowRequest = new \Flow\Request();
+
+            if(\Flow\Basic::save(
+                public_path($this->getDestinationPath()). '/' . $this->filename,
+                $this->config,
+                $flowRequest)) {
+
+                return Response::json(['data' => $model_id, 'message' => "File Uploaded $this->filename"], 200);
+
+            } else {
+
+                return Response::json([], 204);
+
+            }
+        }
+        catch(\Exception $e)
+        {
+            throw new \Exception(sprintf("Error saving image %s", $e->getMessage()));
+        }
+    }
+
+    public function saveImagable()
+    {
+        $imageable = new Imagen();
+        $imageable->path = $this->destination_path . '/' . $this->filename;
+        $imageable->imageable_id = $this->model_id;
+        $imageable->imageable_type = $this->model_class_path;
+        $imageable->save();
+    }
+
+    public function getDestinationPath()
+    {
+        return $this->destination_path;
+    }
+
+    public function setDestinationPath($destination_path)
+    {
+        $this->destination_path = $destination_path;
+    }
+
+    private function getClassName($request)
+    {
+        return ($request->input('model_class_path')) ? $request->input('model_class_path') : 'App\Unidades';
+    }
+
+    public function getImagePublicDestinationPath(Request $request)
+    {
+        return ($request->input('path')) ? $request->input('path') : 'images/contacts';
+    }
 
 }

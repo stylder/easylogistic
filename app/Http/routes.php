@@ -15,9 +15,11 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::any('imgflow', 'ImgAPIController@flow');
+Route::get('images/upload/{model_id}', 'ImgAPIController@uploadFile');
+Route::post('images/upload/{model_id}', 'ImgAPIController@uploadFile');
 
 Route::get('/api/estados/', 'ApiController@estados');
+Route::get('/api/tipo_unidad/', 'ApiController@tipo_unidad');
 Route::get('/api/municipios/{id?}', 'ApiController@municipios');
 
 #Route::post('/api/v1/employees', 'Employees@store');

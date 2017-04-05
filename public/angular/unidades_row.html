@@ -17,7 +17,12 @@
             <input type="text" class="form-control" placeholder="">
         </div>
         <div class="col-md-2">
-            <input type="text" class="form-control" placeholder="">
+            <select ng-model="tipo_unidad">
+                <option ng-repeat="unidad in tipo_unidades"
+                        value={{unidad.id}}>
+                    {{unidad.unidad}}
+                </option>
+            </select>
         </div>
         <div class="col-md-1">
             <a class="btn btn-default btn-danger" ng-click="deleteRow($index);">
@@ -28,7 +33,12 @@
     </div>
 
 
-    <div flow-init="{target: '/public'}"
+    <div flow-init="{
+                                            target: '/images/upload/' + 1, singleFile: true, testChunks: true,
+                                            query: {  'model_class_path': 'App\\Contact', 'path': 'images/contacts'}
+                                        }"
+
+
          flow-files-submitted="$flow.upload()"
          flow-file-success="$file.msg = $message">
 

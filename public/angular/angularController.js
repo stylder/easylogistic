@@ -17,7 +17,7 @@ app.directive('selectLast', function () {
 });
 
 
-app.controller('unidadesController', function MyCtrl($scope) {
+app.controller('unidadesController', function MyCtrl($scope,$http, API_URL) {
 
     $scope.languages = [];
 
@@ -40,6 +40,35 @@ app.controller('unidadesController', function MyCtrl($scope) {
         }
     };
 
+    $http.get(API_URL + "tipo_unidad")
+        .then(function (response) {
+            console.log(response);
+            $scope.tipo_unidades = response.data;
+        });
+
+
+
+    $scope.contact = {};
+    $scope.contact.id = 'new';
+
+    $scope.upload = upload;
+    $scope.setFileName = setFileName;
+    $scope.image_root = '/images/contacts/';
+
+
+
+    function setFileName(flow_files) {
+        vm.image = vm.image_root + flow_files[0].name;
+    }
+
+    function upload(files, event, flow) {
+        angular.forEach(files, function (v, i) {
+            files[i].flowObj.opts.query._token = vm.token;
+        });
+        flow.upload();
+    }
+
+
 });
 
 app.controller('operadoresController', function ($scope, $http, API_URL) {
@@ -49,6 +78,11 @@ app.controller('operadoresController', function ($scope, $http, API_URL) {
             $scope.estados = response.data;
         });
 
+    $http.get(API_URL + "tipo_unidad")
+        .then(function (response) {
+            console.log(response);
+            $scope.tipo_unidades = response.data;
+        });
 
     $scope.cambioEstadoOrigen = function () {
         $http.get(API_URL + "municipios/" + $scope.estado_origen)
@@ -68,53 +102,6 @@ app.controller('operadoresController', function ($scope, $http, API_URL) {
 
 });
 
-
-app.controller("ImagenesController", function MainController($http, $scope) {
-
-    var vm = this;
-    vm.contact = {};
-    vm.contact.id = 'new';
-    vm.token = false;
-    vm.upload = upload;
-    vm.setFileName = setFileName;
-    vm.image_root = '/images/contacts/';
-
-    activate();
-
-    ////
-    function activate() {
-        getToken();
-    }
-
-    function setFileName(flow_files) {
-        vm.image = vm.image_root + flow_files[0].name;
-    }
-
-    function upload(files, event, flow) {
-        angular.forEach(files, function (v, i) {
-            files[i].flowObj.opts.query._token = vm.token;
-        });
-
-
-        flow.upload();
-    }
-
-    function getToken() {
-        $http.get('/auth/token').then(
-            successGettingToken,
-            errorGettingToken
-        );
-    }
-
-    function successGettingToken(response) {
-        vm.token = response.data;
-    }
-
-    function errorGettingToken(response) {
-        console.log("Error");
-        console.log(response);
-    }
-});
 
 app.config(function FlowConfig(flowFactoryProvider) {
     flowFactoryProvider.defaults = {

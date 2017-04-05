@@ -8,6 +8,8 @@ class Imagen extends Model
 {
     public $timestamps = false;
 
+    protected $table = 'imagenes';
+
     /**
      * Get all of the owning imageable models.
      */
