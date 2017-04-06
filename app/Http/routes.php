@@ -15,8 +15,8 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('images/upload/{model_id}', 'ImgAPIController@uploadFile');
-Route::post('images/upload/{model_id}', 'ImgAPIController@uploadFile');
+Route::get('images/{model_id}', 'ImgAPIController@uploadFile');
+Route::post('images/{model_id}', 'ImgAPIController@uploadFile');
 
 Route::get('/api/estados/', 'ApiController@estados');
 Route::get('/api/tipo_unidad/', 'ApiController@tipo_unidad');
