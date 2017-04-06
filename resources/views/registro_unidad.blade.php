@@ -5,7 +5,7 @@
         </h2>
 
         <div class="row">
-            <div class="row text-center panel-heading hidden-xs hidden-sm">
+            <div class="row text-center hidden-xs hidden-sm">
                 <div class="col-md-2">
                     <h5 class="">Marca</h5>
                 </div>

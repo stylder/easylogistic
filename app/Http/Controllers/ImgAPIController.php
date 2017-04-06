@@ -90,7 +90,7 @@ class ImgAPIController extends Controller
 
     public function getImagePublicDestinationPath(Request $request)
     {
-        return ($request->input('path')) ? $request->input('path') : 'images/contacts';
+        return ($request->input('path')) ? $request->input('path') : 'images/';
     }
 
 }

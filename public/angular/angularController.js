@@ -53,7 +53,7 @@ app.controller('unidadesController', function MyCtrl($scope,$http, API_URL) {
 
     $scope.upload = upload;
     $scope.setFileName = setFileName;
-    $scope.image_root = '/images/contacts/';
+    $scope.image_root = '/images/';
 
 
 

@@ -5,7 +5,7 @@
     border-radius: 50%;
     width: 120px;
     height: 120px;
-    animation: spin 2s linear infinite;
+    animation: spin 3s linear infinite;
     margin: auto;
     position: absolute;
     top: 0; left: 0; bottom: 0; right: 0;
@@ -21,5 +21,16 @@
 }
 
 
+.dropUpload {
+    padding: 15px;
+    border: 2px #f1f1f1 dashed;
+    border-radius: 5px;
+    line-height: 34px;
 
+}
+
+.dropUpload .drag-over {
+    background: black;
+    color: #fff;
+}
 
