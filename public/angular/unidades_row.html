@@ -1,5 +1,3 @@
-
-
 <div class="row  padding-top">
     <div class="row">
 
@@ -33,12 +31,10 @@
         </div>
 
 
-
     </div>
 
-
     <div flow-init="{target: '/images/upload' + 1, testChunks: true,
-                     query: {  'model_class_path': 'App\\Unidades', 'path': 'images/'}}"
+                     query: {  'model_class_path': 'App\\Unidades', 'path': 'images/unidades'}}"
 
          flow-files-submitted="$flow.upload()"
          flow-file-success="$file.msg = $message">
@@ -61,14 +57,12 @@
 
         <div class="row">
             <div class="col-md-3" ng-repeat="file in $flow.files">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="loader" ng-show="file.isUploading()">
-                        </div>
-                        <img  class="img-responsive img-thumbnail" src="{{image_root+file.name}}" alt="">
-                    </div>
-
+                <div class="loader" ng-show="file.isUploading()">
                 </div>
+                <a class="btn btn-default btn-danger deleteImg" ng-click="file.cancel()">
+                    <i class="fa fa-times"></i>
+                </a>
+                <img class="img-responsive img-thumbnail" ng-src="{{image_root+file.name}}" alt="">
             </div>
         </div>
 

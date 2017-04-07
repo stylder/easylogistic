@@ -1,4 +1,4 @@
-<section class="fw-section padding-top-3x padding-bottom-2x">
+<section class="fw-section padding-top-3x padding-bottom-2x" id="operador">
     <div class="container">
         <h2 class="block-title text-right">
             Unete a la flotilla

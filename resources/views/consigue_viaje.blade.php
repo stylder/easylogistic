@@ -1,4 +1,4 @@
-<section class="fw-section padding-top-3x" style="background-image: url(img/home/38.jpg)">
+<section class="fw-section padding-top-3x" id="viajes" style="background-image: url(img/home/38.jpg)">
     <div class="overlay" style="background-color: rgba(33, 33, 33, .78);"></div>
 
     <div class="container" ng-controller="operadoresController">
@@ -7,7 +7,6 @@
                 Consigue tu viaje
             </h1>
             <div class="container">
-
                 <div class="row">
                     <div class="col-md-4">
                         <h5 class="text-light">Estado Origen</h5>
@@ -30,9 +29,7 @@
                         <input type="text" class="form-control datepicker" ng-model="fecha_salida"
                                placeholder="Fecha Salida">
                     </div>
-
                 </div>
-
 
                 <div class="row">
                     <div class="col-md-4">

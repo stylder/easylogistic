@@ -1,5 +1,5 @@
 <!-- Full Width Map -->
-<section class="section-fw next-to-footer">
+<section class="section-fw next-to-footer" id="mapa">
     <!-- Wrap your map with ".google-map-container" for usage with info box. -->
     <div class="google-map-container">
         <div class="container">

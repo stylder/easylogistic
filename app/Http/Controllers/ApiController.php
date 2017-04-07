@@ -40,6 +40,13 @@ class ApiController extends Controller
     }
 
 
+    public function imagenes_unidad()
+    {
+        return TipoUnidad::all();
+    }
+
+
+
     /**
      * Show the form for creating a new resource.
      *

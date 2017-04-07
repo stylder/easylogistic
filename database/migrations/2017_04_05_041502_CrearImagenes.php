@@ -15,7 +15,7 @@ class CrearImagenes extends Migration
         Schema::create('imagenes', function (Blueprint $table) {
             $table->increments('id');
             $table->string('path');
-            $table->integer('imageable_id');
+            $table->string('imageable_id');
             $table->string('imageable_type');
         });
     }

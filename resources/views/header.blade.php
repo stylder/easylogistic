@@ -5,7 +5,7 @@
     <div class="nav-bar-inner">
         <div class="container">
             <a href="index.html" class="site-logo">
-                <img src="img/logos-main/logo_01.png" alt="Promo">
+                <img src="img/logos-main/logo2.png" alt="Promo">
             </a><!-- .site-logo -->
 
             <!-- For alignment navigation use .menu-left-align, .menu-right-align or .menu-center-align class. To get light skin, use .light-skin. -->
@@ -13,19 +13,16 @@
                 <div class="stuck-container">
                     <ul class="menu">
                         <li class="current-menu-item menu-item-has-children">
-                            <a href="#">Home</a>
+                            <a href="#viajes">Viajes</a>
                         </li>
                         <li class="menu-item-has-children has-mega-menu">
-                            <a href="#">Blog</a>
+                            <a href="#operador">Unete como Operador</a>
                         </li>
                         <li class="menu-item-has-children">
-                            <a href="#">Portfolio</a>
+                            <a href="#unidades">Registra tus unidades</a>
                         </li>
                         <li class="menu-item-has-children">
-                            <a href="#">Pages</a>
-                        </li>
-                        <li class="menu-item-has-children">
-                            <a href="#">Headers</a>
+                            <a href="#mapa">Dónde tenemos socios</a>
                         </li>
                     </ul><!-- .menu -->
                 </div>

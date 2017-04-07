@@ -25,7 +25,7 @@ class ImgAPIController extends Controller
         try
         {
 
-            $this->model_id         = $model_id;
+            $this->model_id         = "AMOR_SCARLET";
 
             $model_class_path       = $this->getClassName($request);
 
@@ -90,7 +90,7 @@ class ImgAPIController extends Controller
 
     public function getImagePublicDestinationPath(Request $request)
     {
-        return ($request->input('path')) ? $request->input('path') : 'images/';
+        return ($request->input('path')) ? $request->input('path') : 'images/unidades';
     }
 
 }
