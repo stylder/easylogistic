@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 
 class ApiController extends Controller
 {
@@ -47,6 +48,15 @@ class ApiController extends Controller
         return Imagen::all();
     }
 
+
+    public function obtener_mapa()
+    {
+        $mapa = DB::table('operador')
+            ->join('municipio', 'municipio.id_municipio', '=', 'operador.municipio')
+            ->join('estado', 'estado.id_estado', '=', 'operador.estado')
+            ->select('municipio.municipio', 'estado.estado')->get();
+        return $mapa;
+    }
 
     /**
      * Store a newly created resource in storage.

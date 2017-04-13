@@ -37,16 +37,10 @@ app.controller('uneteController', function MyCtrl($scope, $http, API_URL) {
 
 
     $scope.agregarOperador = function () {
-
-
-        $http({
-            method: 'POST',
-            url: API_URL + "agregar_operador/",
-            data: $scope.datos_operador,
-
-        }).then(function (response) {
-            console.log(response)
-        });
+        $http.post(API_URL + "agregar_operador/",$scope.datos_operador)
+            .then(function (response) {
+                console.log(response)
+            });
     };
 
 
@@ -150,6 +144,32 @@ app.config(function FlowConfig(flowFactoryProvider) {
         maxChunkRetries: 10,
         simultaneousUploads: 10
     };
+});
+
+
+app.controller('mapaController', function ($scope, $http, API_URL) {
+    $key= "AIzaSyA5DLwPPVAz88_k0yO2nmFe7T9k1urQs84";
+    $mapas = [];
+    $ok=[];
+
+    $http.get(API_URL + "mapa")
+        .then(function success(response) {
+            $mapas =  response.data;
+            console.log($mapas)
+
+            for (i = 0; i < $mapas.length; i++) {
+
+                $http.get("https://maps.googleapis.com/maps/api/geocode/json?address="+$mapas[i].estado +", " + $mapas[i].municipio)
+                    .then(function success(response) {
+                        console.log(response.data.results[0].geometry.location)
+                        $ok.push(response.data.results[0].geometry.location)
+                    });
+            }
+
+        });
+
+
+
 });
 
 

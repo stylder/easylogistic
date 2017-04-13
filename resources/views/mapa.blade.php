@@ -1,5 +1,5 @@
 <!-- Full Width Map -->
-<section class="section-fw next-to-footer" id="mapa">
+<section class="section-fw next-to-footer" id="mapa" ng-controller="mapaController">
     <!-- Wrap your map with ".google-map-container" for usage with info box. -->
     <div class="google-map-container">
         <div class="container">

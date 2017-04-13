@@ -25,6 +25,8 @@ Route::group(['middleware' => 'cors'], function () {
     Route::post('images/{model_id}', 'ImgAPIController@uploadFile');
 
     Route::get('/api/estados/', 'ApiController@estados');
+
+    Route::get('/api/mapa/', 'ApiController@obtener_mapa');
     Route::get('/api/tipo_unidad/', 'ApiController@tipo_unidad');
     Route::get('/api/municipios/{id?}', 'ApiController@municipios');
 
