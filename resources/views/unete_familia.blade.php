@@ -92,7 +92,7 @@
                     </div>
                     <div class="col-sm-5">
 
-                        <a href="#" class="btn btn-3d btn-primary btn-block btn-sm"  ng-disabled="!terminos">Registrarme</a>
+                        <a href="#" class="btn btn-3d btn-primary btn-block btn-sm"  ng-disabled="!terminos" ng-click="agregarOperador()">Registrarme</a>
                     </div>
 
                 </div>

@@ -16,13 +16,13 @@ app.directive('selectLast', function () {
     };
 });
 
-app.controller('uneteController', function MyCtrl($scope,$http, API_URL) {
+app.controller('uneteController', function MyCtrl($scope, $http, API_URL) {
 
 
-    $scope.datos_operador={};
+    $scope.datos_operador = {};
 
     $http.get(API_URL + "estados")
-        .then(function success (response) {
+        .then(function success(response) {
             $scope.estados = response.data;
         });
 
@@ -36,18 +36,30 @@ app.controller('uneteController', function MyCtrl($scope,$http, API_URL) {
     };
 
 
+    $scope.agregarOperador = function () {
 
-    $scope.terminos=false;
-    $scope.change = function() {
 
-        $scope.terminos=!$scope.terminos;
-        console.log("hello",$scope.terminos);
+        $http({
+            method: 'POST',
+            url: API_URL + "agregar_operador/",
+            data: $scope.datos_operador,
+
+        }).then(function (response) {
+            console.log(response)
+        });
+    };
+
+
+    $scope.terminos = false;
+    $scope.change = function () {
+
+        $scope.terminos = !$scope.terminos;
+        console.log("hello", $scope.terminos);
     };
 });
 
 
-
-app.controller('unidadesController', function MyCtrl($scope,$http, API_URL) {
+app.controller('unidadesController', function MyCtrl($scope, $http, API_URL) {
 
     $scope.languages = [];
 
@@ -74,13 +86,11 @@ app.controller('unidadesController', function MyCtrl($scope,$http, API_URL) {
         });
 
 
-
     $scope.unidad = {};
     $scope.unidad.operador = 'new';
     $scope.upload = upload;
     $scope.setFileName = setFileName;
     $scope.image_root = '/images/unidades/';
-
 
 
     function setFileName(flow_files) {
@@ -98,7 +108,7 @@ app.controller('operadoresController', function ($scope, $http, API_URL) {
 
 
     $http.get(API_URL + "estados")
-        .then(function success (response) {
+        .then(function success(response) {
             $scope.estados = response.data;
         });
 
@@ -128,7 +138,7 @@ app.controller('operadoresController', function ($scope, $http, API_URL) {
 
 app.controller('galeriaController', function ($scope, $http, API_URL) {
     $http.get(API_URL + "imagenes_unidad")
-        .then(function success (response) {
+        .then(function success(response) {
             $scope.imagenes = response.data;
         });
 });

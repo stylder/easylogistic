@@ -18,7 +18,10 @@ class CrearOperador extends Migration
             $table->string('apellidos');
             $table->string('correo');
             $table->string('telefono');
-            $table->string('no_seguro');
+            $table->string('seguro');
+            $table->string('licencia');
+            $table->integer('estado');
+            $table->integer('municipio');
             $table->timestamps();
         });
     }

@@ -15,14 +15,24 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('images/{model_id}', 'ImgAPIController@uploadFile');
-Route::post('images/{model_id}', 'ImgAPIController@uploadFile');
 
-Route::get('/api/estados/', 'ApiController@estados');
-Route::get('/api/tipo_unidad/', 'ApiController@tipo_unidad');
-Route::get('/api/municipios/{id?}', 'ApiController@municipios');
 
-Route::get('/api/imagenes_unidad', 'ApiController@imagenes_unidad');
+
+
+
+Route::group(['middleware' => 'cors'], function () {
+    Route::get('images/{model_id}', 'ImgAPIController@uploadFile');
+    Route::post('images/{model_id}', 'ImgAPIController@uploadFile');
+
+    Route::get('/api/estados/', 'ApiController@estados');
+    Route::get('/api/tipo_unidad/', 'ApiController@tipo_unidad');
+    Route::get('/api/municipios/{id?}', 'ApiController@municipios');
+
+    Route::get('/api/imagenes_unidad', 'ApiController@imagenes_unidad');
+
+
+    Route::post('/api/agregar_operador', 'ApiController@agregar_operador');
+});
 
 #Route::post('/api/v1/employees', 'Employees@store');
 #Route::post('/api/v1/employees/{id}', 'Employees@update');

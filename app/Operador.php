@@ -8,5 +8,5 @@ class Operador extends Model
 {
     protected $primaryKey = 'id';
     protected $table = 'operador';
-    protected $fillable = array('nombre','apellidos','correo','telefono','no_seguro');
+    protected $fillable = array('nombre','apellidos','correo','telefono','seguro','licencia','municipio','estado');
 }
