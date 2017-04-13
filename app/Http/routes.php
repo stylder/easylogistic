@@ -22,6 +22,8 @@ Route::get('/api/estados/', 'ApiController@estados');
 Route::get('/api/tipo_unidad/', 'ApiController@tipo_unidad');
 Route::get('/api/municipios/{id?}', 'ApiController@municipios');
 
+Route::get('/api/imagenes_unidad', 'ApiController@imagenes_unidad');
+
 #Route::post('/api/v1/employees', 'Employees@store');
 #Route::post('/api/v1/employees/{id}', 'Employees@update');
 #Route::delete('/api/v1/employees/{id}', 'Employees@destroy');

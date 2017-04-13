@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Estado;
+use App\Imagen;
 use App\Municipio;
 use App\TipoUnidad;
 use Illuminate\Http\Request;
@@ -42,7 +43,7 @@ class ApiController extends Controller
 
     public function imagenes_unidad()
     {
-        return TipoUnidad::all();
+        return Imagen::all();
     }
 
 

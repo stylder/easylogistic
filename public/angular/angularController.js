@@ -16,6 +16,18 @@ app.directive('selectLast', function () {
     };
 });
 
+app.controller('uneteController', function MyCtrl($scope,$http, API_URL) {
+    $scope.familia={};
+
+    $scope.terminos=false;
+    $scope.change = function() {
+
+        $scope.terminos=!$scope.terminos;
+        console.log("hello",$scope.terminos);
+    };
+});
+
+
 
 app.controller('unidadesController', function MyCtrl($scope,$http, API_URL) {
 
@@ -94,6 +106,13 @@ app.controller('operadoresController', function ($scope, $http, API_URL) {
             });
     };
 
+});
+
+app.controller('galeriaController', function ($scope, $http, API_URL) {
+    $http.get(API_URL + "imagenes_unidad")
+        .then(function success (response) {
+            $scope.imagenes = response.data;
+        });
 });
 
 
