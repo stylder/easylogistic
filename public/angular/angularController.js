@@ -17,7 +17,25 @@ app.directive('selectLast', function () {
 });
 
 app.controller('uneteController', function MyCtrl($scope,$http, API_URL) {
-    $scope.familia={};
+
+
+    $scope.datos_operador={};
+
+    $http.get(API_URL + "estados")
+        .then(function success (response) {
+            $scope.estados = response.data;
+        });
+
+
+    $scope.cambioEstado = function () {
+        $http.get(API_URL + "municipios/" + $scope.datos_operador.estado)
+            .then(function (response) {
+                $scope.municipios = [];
+                $scope.municipios = response.data;
+            });
+    };
+
+
 
     $scope.terminos=false;
     $scope.change = function() {

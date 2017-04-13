@@ -1,6 +1,6 @@
 <section class="fw-section padding-top-3x" id="viajes" style="background-image: url(img/home/38.jpg)">
     <div class="overlay" style="background-color: rgba(33, 33, 33, .78);"></div>
-
+{{--
     <div class="container" ng-controller="operadoresController">
         <div class="row">
             <h1 class="text-light text-center">
@@ -82,6 +82,7 @@
             </div>
         </div>
     </div>
+ --}}
 </section>
 
 
