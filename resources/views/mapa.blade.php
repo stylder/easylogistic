@@ -2,7 +2,7 @@
 <section class="section-fw next-to-footer" id="mapa" ng-controller="mapaController">
     <!-- Wrap your map with ".google-map-container" for usage with info box. -->
     <div class="google-map-container">
-        <div class="container">
+{{--        <div class="container">
             <div class="map-info-box">
                 <div class="map-info-box-logo">
                     <img src="img/logos-main/logo_06.png" alt="">
@@ -34,9 +34,10 @@
                     </address>
                 </div>
             </div>
-        </div>
+        </div>--}}
 
-        <ng-map default-style="true" zoom="3" center="59.339025, 18.065818">
+        @{{ locaciones}}
+        <ng-map default-style="true" zoom="5" center="23.3655288, -111.5572888">
             <info-window id="myInfoWindow">
                 <div ng-non-bindable>
                     <h4>@{{selectedCity.name}}</h4>

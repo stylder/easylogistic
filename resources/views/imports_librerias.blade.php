@@ -24,8 +24,7 @@
 <!-- All Theme Styles -->
 <link href="{{asset('css/theme.min.css')}}" rel="stylesheet" media="screen">
 
-<!--Google Maps API-->
-<script src="http://maps.google.com/maps/api/js?key=AIzaSyA5DLwPPVAz88_k0yO2nmFe7T9k1urQs84"></script>
+
 
 
 <!--Modernizr / Detectizr-->

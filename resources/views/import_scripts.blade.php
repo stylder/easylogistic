@@ -26,6 +26,9 @@
 <script src="{{asset('js/scripts.js')}}"></script>
 <script src="{{asset('js/angular.min.js')}}"></script>
 
+<!--Google Maps API-->
+<script src="http://maps.google.com/maps/api/js?key=AIzaSyA5DLwPPVAz88_k0yO2nmFe7T9k1urQs84"></script>
+<script src="{{asset('js/markerclusterer.js')}}"></script>
 <script src="{{asset('js/ng-map.js')}}"></script>
 <script src="{{asset('angular/angularController.js')}}"></script>
 
