@@ -36,8 +36,7 @@
             </div>
         </div>--}}
 
-        @{{ locaciones}}
-        <ng-map default-style="true" zoom="5" center="23.3655288, -111.5572888">
+        <ng-map default-style="true" zoom="4" center="23.3655288, -111.5572888">
             <info-window id="myInfoWindow">
                 <div ng-non-bindable>
                     <h4>@{{selectedCity.name}}</h4>

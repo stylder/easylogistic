@@ -157,6 +157,7 @@ app.controller('mapaController', function ($scope, $http, API_URL,NgMap,$q) {
     $http.get(API_URL + "mapa")
         .then(function success(response) {
             $mapas = response.data;
+            console.log($mapas)
 
             var prom = [];
             $mapas.forEach(function (obj, i) {
@@ -182,35 +183,19 @@ app.controller('mapaController', function ($scope, $http, API_URL,NgMap,$q) {
             .then(function success(response) {
 
                 var latLgt = (response.data.results[0].geometry.location);
-                var elemento = {  name: municipio, pos:  [latLgt.lat, latLgt.lng]}
+                var elemento = {  name: estado+", "+municipio, pos: [latLgt.lat,latLgt.lng]}
                 console.log(elemento)
                 $scope.locaciones.push(elemento);
                  return (elemento);
             });
 
-    }
-
-
-
-
-
-
-
-/*    $scope.cities = [
-        { id: 1, name: 'Oslo', pos: [59.923043, 10.752839] },
-        { id: 2, name: 'Stockholm', pos: [59.339025, 18.065818] },
-        { id: 3, name: 'Copenhagen', pos: [55.675507, 12.574227] },
-        { id: 4, name: 'Berlin', pos: [52.521248, 13.399038] },
-        { id: 5, name: 'Paris', pos: [48.856127, 2.346525] }
-    ];*/
-
+    };
 
 
     $scope.initMarkerClusterer = function () {
         var markers = $scope.locaciones.map(function (city) {
             return $scope.createMarkerForCity(city);
         });
-
         var mcOptions = { imagePath: 'https://cdn.rawgit.com/googlemaps/js-marker-clusterer/gh-pages/images/m' };
         return new MarkerClusterer($scope.map, markers, mcOptions);
     };
@@ -227,7 +212,6 @@ app.controller('mapaController', function ($scope, $http, API_URL,NgMap,$q) {
         });
         return marker;
     }
-
 
 
 });
