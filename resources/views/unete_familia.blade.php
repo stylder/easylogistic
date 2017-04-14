@@ -82,6 +82,9 @@
                 <div class="row">
 
 
+                    <button  ng-click="notificacion()">
+                        cliccckkk
+                    </button>
                  @{{ datos_operador }}
 
                     <div class="col-sm-7">

@@ -1,6 +1,6 @@
 
 
-var app = angular.module('app', ['flow','ngMap']);
+var app = angular.module('app', ['flow','ngMap','ngNotify']);
 
 app.constant('API_URL', 'http://localhost:8000/api/');
 
@@ -18,7 +18,18 @@ app.directive('selectLast', function () {
     };
 });
 
-app.controller('uneteController', function MyCtrl($scope, $http, API_URL) {
+app.controller('uneteController', function MyCtrl($scope, $http, API_URL,ngNotify) {
+
+    ngNotify.addTheme('notificaciones', 'notificaciones');
+
+    ngNotify.config({
+        theme: 'notificaciones'
+    });
+
+    $scope.notificacion = function () {
+        ngNotify.set('Your notification message goes here!');
+
+    };
 
 
     $scope.datos_operador = {};
@@ -100,7 +111,9 @@ app.controller('unidadesController', function MyCtrl($scope, $http, API_URL) {
 
 });
 
-app.controller('operadoresController', function ($scope, $http, API_URL) {
+app.controller('operadoresController', function ($scope, $http, API_URL, ngNotify) {
+
+
 
 
     $http.get(API_URL + "estados")

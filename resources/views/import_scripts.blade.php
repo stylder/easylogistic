@@ -34,6 +34,8 @@
 
 <script src="{{asset('js/ng-flow-standalone.js')}}"></script>
 
+<script src="{{asset('js/ng-notify.min.js')}}"></script>
+
 <script src="{{asset('js/picker.js')}}"></script>
 <script src="{{asset('js/picker.date.js')}}"></script>
 

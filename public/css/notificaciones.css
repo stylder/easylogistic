@@ -1,0 +1,23 @@
+.notificaciones .ngn-info{
+    background-color: #ff8212
+}
+
+.notificaciones .ngn-error{
+    background-color: #FF0000
+}
+
+
+.notificaciones .ngn-success{
+    background-color: #00CC00
+}
+
+
+.notificaciones .ngn-warn{
+    background-color: #FF9900
+}
+
+
+.notificaciones .ngn-grimace{
+    background-color: #660099
+}
+
