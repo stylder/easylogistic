@@ -36,8 +36,17 @@
             </div>
         </div>
 
+        <ng-map default-style="true" zoom="3" center="59.339025, 18.065818">
+            <info-window id="myInfoWindow">
+                <div ng-non-bindable>
+                    <h4>@{{selectedCity.name}}</h4>
+                </div>
+            </info-window>
+        <!--marker ng-repeat="c in cities" position="@{{c.pos}}" title="@{{c.name}}" id="@{{c.id}}" on-click="showCity(event, c)">
+            </marker-->
+        </ng-map>
 
-        <div class="google-map"
+        {{--<div class="google-map"
              data-address="New York, USA"
              data-height="450"
              data-zoom="14"
@@ -45,7 +54,7 @@
              data-scrollwheel="false"
              data-marker="img/map-marker.png"
              data-marker-title="Nucleus Office"
-        ></div><!-- .google-map -->
+        ></div><!-- .google-map -->--}}
     </div>
 </section><!-- Full Width Map End -->
 
