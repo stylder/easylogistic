@@ -81,7 +81,7 @@
 
                 <div class="row">
 
-
+                    @{{ terminos }}
                     <button  ng-click="notificacion()">
                         cliccckkk
                     </button>

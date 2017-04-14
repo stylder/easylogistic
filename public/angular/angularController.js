@@ -1,6 +1,4 @@
-
-
-var app = angular.module('app', ['flow','ngMap','ngNotify']);
+var app = angular.module('app', ['flow', 'ngMap', 'ngNotify']);
 
 app.constant('API_URL', 'http://localhost:8000/api/');
 
@@ -18,7 +16,7 @@ app.directive('selectLast', function () {
     };
 });
 
-app.controller('uneteController', function MyCtrl($scope, $http, API_URL,ngNotify) {
+app.controller('uneteController', function MyCtrl($scope, $http, API_URL, ngNotify) {
 
     ngNotify.addTheme('notificaciones', 'notificaciones');
 
@@ -26,11 +24,10 @@ app.controller('uneteController', function MyCtrl($scope, $http, API_URL,ngNotif
         theme: 'notificaciones'
     });
 
+
     $scope.notificacion = function () {
-        ngNotify.set('Your notification message goes here!');
-
+        ngNotify.set('Operador ' +'agregado correctamente','success');
     };
-
 
     $scope.datos_operador = {};
 
@@ -50,18 +47,20 @@ app.controller('uneteController', function MyCtrl($scope, $http, API_URL,ngNotif
 
 
     $scope.agregarOperador = function () {
-        $http.post(API_URL + "agregar_operador/",$scope.datos_operador)
-            .then(function (response) {
-                console.log(response)
-            });
+        if ($scope.terminos) {
+            $http.post(API_URL + "agregar_operador/", $scope.datos_operador)
+                .then(function (response) {
+                    ngNotify.set('Operador ' + response.data.nombre + ' ' + response.data.apellidos + 'agregado correctamente','success');
+                });
+        } else {
+            ngNotify.set('Para poder registrarse en la familia EasyLogistic necesita que acepte los términos  y condiciones');
+        }
     };
 
 
     $scope.terminos = false;
     $scope.change = function () {
-
         $scope.terminos = !$scope.terminos;
-        console.log("hello", $scope.terminos);
     };
 });
 
@@ -71,7 +70,8 @@ app.controller('unidadesController', function MyCtrl($scope, $http, API_URL) {
 
     $http.post(API_URL + "verificar_session")
         .then(function success(response) {
-            console.log("session",response);
+            $scope.operador = response.data;
+            console.log("session", response);
         });
 
     $scope.languages = [];
@@ -120,8 +120,6 @@ app.controller('unidadesController', function MyCtrl($scope, $http, API_URL) {
 app.controller('operadoresController', function ($scope, $http, API_URL, ngNotify) {
 
 
-
-
     $http.get(API_URL + "estados")
         .then(function success(response) {
             $scope.estados = response.data;
@@ -168,7 +166,7 @@ app.config(function FlowConfig(flowFactoryProvider) {
 });
 
 
-app.controller('mapaController', function ($scope, $http, API_URL,NgMap,$q) {
+app.controller('mapaController', function ($scope, $http, API_URL, NgMap, $q) {
     $key = "AIzaSyA5DLwPPVAz88_k0yO2nmFe7T9k1urQs84";
     $mapas = [];
     $scope.locaciones = [];
@@ -176,19 +174,16 @@ app.controller('mapaController', function ($scope, $http, API_URL,NgMap,$q) {
     $http.get(API_URL + "mapa")
         .then(function success(response) {
             $mapas = response.data;
-            console.log($mapas)
-
             var prom = [];
             $mapas.forEach(function (obj, i) {
-                prom.push(getLatLgt(obj.estado,obj.municipio), function (latlgt) {
+                prom.push(getLatLgt(obj.estado, obj.municipio), function (latlgt) {
                     $scope.locaciones.push(latlgt);
-                } );
+                });
 
             });
 
             $q.all(prom).then(function () {
-                console.log("terminé", $scope.locaciones);
-                    NgMap.getMap().then(function (map) {
+                NgMap.getMap().then(function (map) {
                     $scope.map = map;
                     $scope.initMarkerClusterer();
                 });
@@ -197,15 +192,14 @@ app.controller('mapaController', function ($scope, $http, API_URL,NgMap,$q) {
         });
 
 
-    getLatLgt = function(estado, municipio, callback) {
-        return  $http.get("https://maps.googleapis.com/maps/api/geocode/json?address=" + estado + ", " + municipio)
+    getLatLgt = function (estado, municipio, callback) {
+        return $http.get("https://maps.googleapis.com/maps/api/geocode/json?address=" + estado + ", " + municipio)
             .then(function success(response) {
 
                 var latLgt = (response.data.results[0].geometry.location);
-                var elemento = {  name: estado+", "+municipio, pos: [latLgt.lat,latLgt.lng]}
-                console.log(elemento)
+                var elemento = {name: estado + ", " + municipio, pos: [latLgt.lat, latLgt.lng]}
                 $scope.locaciones.push(elemento);
-                 return (elemento);
+                return (elemento);
             });
 
     };
@@ -215,7 +209,7 @@ app.controller('mapaController', function ($scope, $http, API_URL,NgMap,$q) {
         var markers = $scope.locaciones.map(function (city) {
             return $scope.createMarkerForCity(city);
         });
-        var mcOptions = { imagePath: 'https://cdn.rawgit.com/googlemaps/js-marker-clusterer/gh-pages/images/m' };
+        var mcOptions = {imagePath: 'https://cdn.rawgit.com/googlemaps/js-marker-clusterer/gh-pages/images/m'};
         return new MarkerClusterer($scope.map, markers, mcOptions);
     };
 

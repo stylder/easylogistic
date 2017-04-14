@@ -1,23 +1,23 @@
-.notificaciones .ngn-info{
-    background-color: #ff8212
+.notificaciones.ngn-info{
+    background-color: #ff8212 !important;
 }
 
-.notificaciones .ngn-error{
-    background-color: #FF0000
-}
-
-
-.notificaciones .ngn-success{
-    background-color: #00CC00
+.notificaciones.ngn-error{
+    background-color: #FF0000 !important;
 }
 
 
-.notificaciones .ngn-warn{
-    background-color: #FF9900
+.notificaciones.ngn-success{
+    background-color: #808080 !important;
 }
 
 
-.notificaciones .ngn-grimace{
-    background-color: #660099
+.notificaciones.ngn-warn{
+    background-color: #FF9900 !important;
+}
+
+
+.notificaciones.ngn-grimace{
+    background-color: #660099 !important;
 }
 

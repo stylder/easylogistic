@@ -2,6 +2,7 @@
     <div class="container " ng-controller="unidadesController">
         <h2 class="block-title text-center">
             Registra tus unidades
+            <small>Las unidades serán registradas a nombre de: @{{ operador.nombre }} @{{ operador.apellidos}}</small>
         </h2>
 
         <div class="row">
