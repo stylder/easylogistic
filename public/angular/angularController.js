@@ -68,6 +68,12 @@ app.controller('uneteController', function MyCtrl($scope, $http, API_URL,ngNotif
 
 app.controller('unidadesController', function MyCtrl($scope, $http, API_URL) {
 
+
+    $http.post(API_URL + "verificar_session")
+        .then(function success(response) {
+            console.log("session",response);
+        });
+
     $scope.languages = [];
 
     $scope.languages.push($scope.nativeLanguage);

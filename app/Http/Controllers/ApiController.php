@@ -77,7 +77,19 @@ class ApiController extends Controller
         $operador -> municipio  = $request->get('municipio');
 
         $operador->save();
+
+        $request->session()->put('nombre', $request->get('nombre'));
+        $request->session()->put('apellidos', $request->get('apellidos'));
+        $request->session()->put('licencia', $request->get('licencia'));
+
         return $operador;
     }
 
+    public function verificarSession(Request $request){
+        $nombre = $request->session()->get('nombre');
+        $apellidos = $request->session()->get('apellidos');
+        $licencia = $request->session()->get('licencia');
+
+        return (array('nombre' => $nombre, 'apellidos' =>$apellidos, 'licencia' => $licencia));
+    }
 }
