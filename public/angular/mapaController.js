@@ -4,6 +4,7 @@ var app = angular.module('app');
 
 app.controller('mapaController', function ($scope, $http, API_URL, NgMap, $q) {
     $key = "AIzaSyA5DLwPPVAz88_k0yO2nmFe7T9k1urQs84";
+
     $mapas = [];
     $scope.locaciones = [];
 

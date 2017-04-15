@@ -4,6 +4,23 @@ var app = angular.module('app');
 app.controller('unidadesController', function MyCtrl($scope, $http, API_URL) {
 
 
+    $scope.getElementos = function()
+    {
+/*
+        $scope.todo =[];
+        for(var i in $scope.unidades)
+        {
+            //$scope.todo.push($scope.values[i]);
+
+        }
+*/
+
+        console.log($scope)
+
+
+    };
+
+
     $http.post(API_URL + "verificar_session")
         .then(function success(response) {
             $scope.operador = response.data;
@@ -15,11 +32,10 @@ app.controller('unidadesController', function MyCtrl($scope, $http, API_URL) {
     $scope.unidades.push($scope.nativeLanguage);
 
     $scope.addRow = function () {
-        var newLanguage = {
-            level: $scope.level,
-            name: $scope.name,
-            remark: $scope.remark
-        };
+        var newLanguage ={unidad:{
+            modelo:"jeje"
+        }} ;
+
         $scope.unidades.push(newLanguage);
     };
 

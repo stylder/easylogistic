@@ -80,22 +80,16 @@
 
 
                 <div class="row">
-
-                    @{{ terminos }}
-                    <button  ng-click="notificacion()">
-                        cliccckkk
-                    </button>
-                 @{{ datos_operador }}
-
                     <div class="col-sm-7">
-                        <label class="checkbox checkbox-inline" ng-click="change()">
-                            <input type="checkbox" ng-model="terminos" ng-change="change()" >
+                        <label class="checkbox checkbox-inline" >
+                            <input type="checkbox" ng-model="datos_operador.terminos"  ng-checked="datos_operador.terminos"  ng-change="change()">
                             Acepto términos y condiciones
                         </label>
+                         @{{ datos_operador.terminos }}
                     </div>
                     <div class="col-sm-5">
 
-                        <a href="#" class="btn btn-3d btn-primary btn-block btn-sm"  ng-disabled="!terminos" ng-click="agregarOperador()">Registrarme</a>
+                        <a href="#" class="btn btn-3d btn-primary btn-block btn-sm"  ng-disabled="!datos_operador.terminos" ng-click="agregarOperador()">Registrarme</a>
                     </div>
 
                 </div>

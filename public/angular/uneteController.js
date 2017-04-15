@@ -13,7 +13,9 @@ app.controller('uneteController', function MyCtrl($scope, $http, API_URL, ngNoti
         ngNotify.set('Operador ' +'agregado correctamente','success');
     };
 
-    $scope.datos_operador = {};
+    $scope.datos_operador = {
+        terminos:false
+    };
 
     $http.get(API_URL + "estados")
         .then(function success(response) {
@@ -42,8 +44,9 @@ app.controller('uneteController', function MyCtrl($scope, $http, API_URL, ngNoti
     };
 
 
-    $scope.terminos = false;
+
     $scope.change = function () {
-        $scope.terminos = !$scope.terminos;
+        $scope.datos_operador.terminos = true;
+        console.log($scope.datos_operador.terminos);
     };
 });
