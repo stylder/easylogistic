@@ -1,5 +1,5 @@
-<section class="fw-section padding-top-3x padding-bottom-2x"  ID="unidades">
-    <div class="container " ng-controller="unidadesController">
+<section class="fw-section padding-top-3x padding-bottom-2x" ID="unidades" ng-controller="unidadesController">
+    <div class="container " disabled="true">
         <h2 class="block-title text-center">
             Registra tus unidades
             <small>Las unidades serán registradas a nombre de: @{{ operador.nombre }} @{{ operador.apellidos}}</small>
@@ -30,16 +30,23 @@
         </div>
 
 
-        <div class="row">
+        <div class="row padding-top-2x">
             <div select-last></div>
-            <div select-last ng-repeat='language in languages'></div>
+            <div select-last ng-repeat='unidad in unidades'></div>
 
             <div class="row">
-                <div class="col-md-1 col-md-offset-11">
+
+                <div class="col-md-9"></div>
+                <div class="col-md-1">
                     <a class="btn btn-default btn-success" tooltip="Add" ng-click='addRow()'>
                         <i class="fa fa-plus"></i>
                     </a>
                 </div>
+
+                <div class="col-md-2">
+                    <a href="#" class="btn btn-block btn-pill btn-ghost btn-default waves-effect waves-light">Guardar    </a>
+                </div>
+
             </div>
         </div>
     </div>

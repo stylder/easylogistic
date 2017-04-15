@@ -10,9 +10,9 @@ app.controller('unidadesController', function MyCtrl($scope, $http, API_URL) {
             console.log("session", response);
         });
 
-    $scope.languages = [];
+    $scope.unidades = [];
 
-    $scope.languages.push($scope.nativeLanguage);
+    $scope.unidades.push($scope.nativeLanguage);
 
     $scope.addRow = function () {
         var newLanguage = {
@@ -20,12 +20,12 @@ app.controller('unidadesController', function MyCtrl($scope, $http, API_URL) {
             name: $scope.name,
             remark: $scope.remark
         };
-        $scope.languages.push(newLanguage);
+        $scope.unidades.push(newLanguage);
     };
 
     $scope.deleteRow = function (rowNo) {
         if (rowNo != null) {
-            $scope.languages.splice(rowNo, 1);
+            $scope.unidades.splice(rowNo, 1);
         }
     };
 

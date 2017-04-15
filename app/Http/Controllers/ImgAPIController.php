@@ -22,45 +22,46 @@ class ImgAPIController extends Controller
     public function uploadFile(Request $request, $model_id = false)
     {
 
-        try
-        {
+        $licencia = $request->session()->get('licencia');
 
-            $this->model_id         = "AMOR_SCARLET";
+        if ($licencia != null) {
+            try {
+                $this->model_id = $licencia;
 
-            $model_class_path       = $this->getClassName($request);
+                $model_class_path = $this->getClassName($request);
 
-            $path                   = $this->getImagePublicDestinationPath($request);
+                $path = $this->getImagePublicDestinationPath($request);
 
-            $this->model_class_path = $model_class_path;
+                $this->model_class_path = $model_class_path;
 
-            $this->destination_path = $path;
+                $this->destination_path = $path;
 
-            $this->config = new Config(array(
-                'tempDir' => storage_path('chunks_temp_folder')
-            ));
+                $this->config = new Config(array(
+                    'tempDir' => storage_path('chunks_temp_folder')
+                ));
 
-            $this->filename = Input::get('flowFilename');
+                $this->filename = Input::get('flowFilename');
 
-            $this->saveImagable();
+                $this->saveImagable();
 
-            $flowRequest = new \Flow\Request();
+                $flowRequest = new \Flow\Request();
 
-            if(\Flow\Basic::save(
-                public_path($this->getDestinationPath()). '/' . $this->filename,
-                $this->config,
-                $flowRequest)) {
+                if (\Flow\Basic::save(
+                    public_path($this->getDestinationPath()) . '/' . $this->filename,
+                    $this->config,
+                    $flowRequest)
+                ) {
 
-                return Response::json(['data' => $model_id, 'message' => "File Uploaded $this->filename"], 200);
+                    return Response::json(['data' => $model_id, 'message' => "File Uploaded $this->filename"], 200);
 
-            } else {
+                } else {
 
-                return Response::json([], 204);
+                    return Response::json([], 204);
 
+                }
+            } catch (\Exception $e) {
+                throw new \Exception(sprintf("Error saving image %s", $e->getMessage()));
             }
-        }
-        catch(\Exception $e)
-        {
-            throw new \Exception(sprintf("Error saving image %s", $e->getMessage()));
         }
     }
 
