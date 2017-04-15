@@ -23,7 +23,7 @@
 <script src="revolution/js/jquery.themepunch.tools.min.js"></script>
 <script src="revolution/js/jquery.themepunch.revolution.min.js"></script>
 <!-- -->
-<script src="{{asset('js/scripts.js')}}"></script>
+
 <script src="{{asset('js/angular.min.js')}}"></script>
 
 <!--Google Maps API-->
@@ -36,6 +36,8 @@
 <script src="{{asset('angular/unidadesController.js')}}"></script>
 <script src="{{asset('angular/galeriaController.js')}}"></script>
 <script src="{{asset('angular/uneteController.js')}}"></script>
+
+<script src="{{asset('js/scripts.js')}}"></script>
 
 <script src="{{asset('js/ng-flow-standalone.js')}}"></script>
 
