@@ -29,6 +29,22 @@ app.controller('unidadesController', function MyCtrl($scope, $http, API_URL) {
         }
     };
 
+    $scope.borrarUnidad = function (file) {
+        var imagen_eliminar ={
+            imagen:"images/unidades/"+file,
+            licencia:$scope.operador.licencia
+        };
+
+        $http.post(API_URL + "eliminar_imagen/", imagen_eliminar)
+            .then(function (response) {
+                console.log("Eliminar", response);
+            });
+
+
+
+    };
+
+
     $http.get(API_URL + "tipo_unidad")
         .then(function (response) {
             $scope.tipo_unidades = response.data;

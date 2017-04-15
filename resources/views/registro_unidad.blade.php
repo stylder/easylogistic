@@ -17,7 +17,7 @@
                 <div class="col-md-2">
                     <h5 class="">Placas</h5>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-2">
                     <h5 class="">No.Seguro</h5>
                 </div>
                 <div class="col-md-2">
@@ -30,21 +30,16 @@
         </div>
 
 
-        <div class="row padding-top-2x">
+        <div class="row ">
             <div select-last></div>
             <div select-last ng-repeat='unidad in unidades'></div>
 
-            <div class="row">
-
+            <div class="row padding-top-2x">
                 <div class="col-md-9"></div>
-                <div class="col-md-1">
-                    <a class="btn btn-default btn-success" tooltip="Add" ng-click='addRow()'>
-                        <i class="fa fa-plus"></i>
-                    </a>
-                </div>
-
                 <div class="col-md-2">
-                    <a href="#" class="btn btn-block btn-pill btn-ghost btn-default waves-effect waves-light">Guardar    </a>
+                    <a href="#" class="btn btn-default btn-rounded waves-effect waves-light btn-divided btn-icon-left">
+                        <i class="fa fa-truck"></i>Guardar  Unidades
+                    </a>
                 </div>
 
             </div>

@@ -12,7 +12,7 @@
             <div class="col-md-2">
                 <input type="text" class="form-control" placeholder="">
             </div>
-            <div class="col-md-3">
+            <div class="col-md-2">
                 <input type="text" class="form-control" placeholder="">
             </div>
             <div class="col-md-2">
@@ -26,6 +26,11 @@
             <div class="col-md-1">
                 <a class="btn btn-default btn-danger" ng-click="deleteRow($index);">
                     <i class="fa fa-times"></i>
+                </a>
+            </div>
+            <div class="col-md-1">
+                <a class="btn btn-default btn-success" tooltip="Add" ng-click='addRow()'>
+                    <i class="fa fa-plus"></i>
                 </a>
             </div>
 
@@ -60,7 +65,7 @@
             <div class="col-md-3" ng-repeat="file in $flow.files">
                 <div class="loader" ng-show="file.isUploading()">
                 </div>
-                <a class="btn btn-default btn-danger deleteImg" ng-click="file.cancel()">
+                <a class="btn btn-default btn-danger deleteImg" ng-click="file.cancel(); borrarUnidad(file.name)">
                     <i class="fa fa-times"></i>
                 </a>
                 <img class="img-responsive img-thumbnail" ng-src="{{image_root+file.name}}" alt="">

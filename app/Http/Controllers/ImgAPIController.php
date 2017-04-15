@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Imagen;
+use File;
 use Flow\Config;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\DB;
 
 class ImgAPIController extends Controller
 {
@@ -19,8 +21,7 @@ class ImgAPIController extends Controller
 
     public $config;
 
-    public function uploadFile(Request $request, $model_id = false)
-    {
+    public function uploadFile(Request $request, $model_id = false){
 
         $licencia = $request->session()->get('licencia');
 
@@ -65,8 +66,7 @@ class ImgAPIController extends Controller
         }
     }
 
-    public function saveImagable()
-    {
+    public function saveImagable(){
         $imageable = new Imagen();
         $imageable->path = $this->destination_path . '/' . $this->filename;
         $imageable->imageable_id = $this->model_id;
@@ -74,23 +74,39 @@ class ImgAPIController extends Controller
         $imageable->save();
     }
 
-    public function getDestinationPath()
-    {
+    public function deleteImagen(Request $request){
+
+
+
+
+        $imagen     = $request->get('imagen');
+        $licencia   = $request->get('licencia');
+
+        if (File::exists($imagen)) {
+            //File::delete($image_path);
+            File::delete($imagen);
+        }
+
+        DB::table('imagenes')->where('path', '=', $imagen)->where('imageable_id', '=', $licencia)->delete();
+
+        return $imagen;
+
+
+    }
+
+    public function getDestinationPath(){
         return $this->destination_path;
     }
 
-    public function setDestinationPath($destination_path)
-    {
+    public function setDestinationPath($destination_path){
         $this->destination_path = $destination_path;
     }
 
-    private function getClassName($request)
-    {
+    private function getClassName($request){
         return ($request->input('model_class_path')) ? $request->input('model_class_path') : 'App\Unidades';
     }
 
-    public function getImagePublicDestinationPath(Request $request)
-    {
+    public function getImagePublicDestinationPath(Request $request){
         return ($request->input('path')) ? $request->input('path') : 'images/unidades';
     }
 

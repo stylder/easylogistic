@@ -17,12 +17,10 @@ Route::get('/', function () {
 
 
 
-
-
-
 Route::group(['middleware' => 'cors'], function () {
     Route::get('images/{model_id}', 'ImgAPIController@uploadFile');
     Route::post('images/{model_id}', 'ImgAPIController@uploadFile');
+    Route::post('/api/eliminar_imagen', 'ImgAPIController@deleteImagen');
 
     Route::get('/api/estados/', 'ApiController@estados');
 
