@@ -331,22 +331,6 @@ jQuery(document).ready(function($) {
 	}
 
 
-	// Gallery Popup
-	var $gallItem = $( '.gallery-item' );
-	if( $gallItem.length > 0 ) {
-		$gallItem.magnificPopup( {
-		  type: 'image',
-		  delegate: 'a',
-		  mainClass: 'mfp-fade',
-		  // gallery: {
-		  //   enabled: true
-		  // },
-		  removalDelay: 500,
-		  image: {
-		  	titleSrc: 'data-title'
-		  }
-		} );
-	}
 
 
 	// Video Popup

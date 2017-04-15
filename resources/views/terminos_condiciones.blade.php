@@ -2,7 +2,7 @@
     <div class="panel panel-default">
         <div class="panel-heading">
             <a class="panel-title collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-                Terminos y condiciones
+                Términos y condiciones
             </a>
         </div>
         <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel">

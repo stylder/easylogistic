@@ -31,6 +31,11 @@
 <script src="{{asset('js/markerclusterer.js')}}"></script>
 <script src="{{asset('js/ng-map.js')}}"></script>
 <script src="{{asset('angular/angularController.js')}}"></script>
+<script src="{{asset('angular/mapaController.js')}}"></script>
+<script src="{{asset('angular/operadorController.js')}}"></script>
+<script src="{{asset('angular/unidadesController.js')}}"></script>
+<script src="{{asset('angular/galeriaController.js')}}"></script>
+<script src="{{asset('angular/uneteController.js')}}"></script>
 
 <script src="{{asset('js/ng-flow-standalone.js')}}"></script>
 
