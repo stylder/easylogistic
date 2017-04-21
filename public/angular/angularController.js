@@ -7,9 +7,6 @@ app.directive('selectLast', function () {
         restrict: 'A',
         transclude: true,
         templateUrl: 'angular/unidades_row.html',
-        link: function(scope, element, attrs) {
-            scope.unidad = attrs.unidad;
-        },
 
         replace: true
     };
@@ -23,6 +20,4 @@ app.config(function FlowConfig(flowFactoryProvider) {
         simultaneousUploads: 10
     };
 });
-
-
 

@@ -1,24 +1,8 @@
 var app = angular.module('app');
 
 
-app.controller('unidadesController', function MyCtrl($scope, $http, API_URL) {
+app.controller('unidadesController', function ($scope, $http, API_URL) {
 
-
-    $scope.getElementos = function()
-    {
-/*
-        $scope.todo =[];
-        for(var i in $scope.unidades)
-        {
-            //$scope.todo.push($scope.values[i]);
-
-        }
-*/
-
-        console.log($scope)
-
-
-    };
 
 
     $http.post(API_URL + "verificar_session")
@@ -27,20 +11,24 @@ app.controller('unidadesController', function MyCtrl($scope, $http, API_URL) {
             console.log("session", response);
         });
 
+    
     $scope.unidades = [];
 
-    $scope.unidades.push($scope.nativeLanguage);
+    var nuevaUnidad ={} ;
+
+    $scope.unidades.push(nuevaUnidad);
+    $scope.getUnidades = function(){
+        console.log($scope.unidades);
+    }
 
     $scope.addRow = function () {
-        var newLanguage ={unidad:{
-            modelo:"jeje"
-        }} ;
+        var nuevaUnidad ={} ;
 
-        $scope.unidades.push(newLanguage);
+        $scope.unidades.push(nuevaUnidad);
     };
 
     $scope.deleteRow = function (rowNo) {
-        if (rowNo != null) {
+        if (rowNo != null && $scope.unidades.length>1) {
             $scope.unidades.splice(rowNo, 1);
         }
     };
@@ -55,9 +43,6 @@ app.controller('unidadesController', function MyCtrl($scope, $http, API_URL) {
             .then(function (response) {
                 console.log("Eliminar", response);
             });
-
-
-
     };
 
 

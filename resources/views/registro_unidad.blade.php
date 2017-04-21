@@ -31,15 +31,18 @@
 
 
         <div class="row ">
-            <div select-last info=""></div>
-            <div select-last ng-repeat='unidad in unidades' info="values[$index]">
-                @{{  unidad }}
+
+            <button ng-click="getUnidades()" >
+                Unidades
+            </button>@{{unidades}}
+
+
+            <div select-last ng-repeat='unidad in unidades'  data-ng-model="unidad" >
+
             </div>
 
-            <button ng-click="getElementos()">
-                elementos
-            </button>
-            <br/>Total: <span>@{{todo}}</span>
+
+
 
             <div class="row padding-top-2x">
                 <div class="col-md-9"></div>
