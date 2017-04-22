@@ -37,3 +37,4 @@
 <link href="{{asset('css/progress.css')}}" rel="stylesheet" media="screen">
 <link href="{{asset('css/ng-notify.min.css')}}" rel="stylesheet" media="screen">
 <link href="{{asset('css/notificaciones.css')}}" rel="stylesheet" media="screen">
+<link href="{{asset('css/mapa.css')}}" rel="stylesheet" media="screen">

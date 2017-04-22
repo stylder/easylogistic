@@ -1,0 +1,4 @@
+div#mapa {
+    width: 100%; height: 1000px!important;
+}
+ng-map {width:100%; height:100%!important;position: absolute;}
