@@ -1,7 +1,8 @@
 var app = angular.module('app');
 
-app.controller('operadoresController', function ($scope, $http, API_URL, ngNotify) {
+app.controller('consigueViajeController', function ($scope, $http, API_URL, ngNotify) {
 
+    $scope.viaje ={};
 
     $http.get(API_URL + "estados")
         .then(function success(response) {
@@ -15,7 +16,7 @@ app.controller('operadoresController', function ($scope, $http, API_URL, ngNotif
 
 
     $scope.cambioEstadoOrigen = function () {
-        $http.get(API_URL + "municipios/" + $scope.estado_origen)
+        $http.get(API_URL + "municipios/" + $scope.viaje.estado_origen)
             .then(function (response) {
                 $scope.municipios_origen = [];
                 $scope.municipios_origen = response.data;
@@ -23,11 +24,22 @@ app.controller('operadoresController', function ($scope, $http, API_URL, ngNotif
     };
 
     $scope.cambioEstadoDestino = function () {
-        $http.get(API_URL + "municipios/" + $scope.estado_destino)
+        $http.get(API_URL + "municipios/" + $scope.viaje.estado_destino)
             .then(function (response) {
                 $scope.municipios_destino = [];
                 $scope.municipios_destino = response.data;
             });
+    };
+
+
+    $scope.conseguirViaje = function () {
+
+            $http.post(API_URL + "conseguir_viaje/", $scope.viaje)
+                .then(function (response) {
+                    ngNotify.set('Operador ' + response.data.nombre + ' ' + response.data.apellidos + ' agregado correctamente', 'success');
+
+                });
+
     };
 
 });

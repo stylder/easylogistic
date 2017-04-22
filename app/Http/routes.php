@@ -34,5 +34,6 @@ Route::group(['middleware' => 'cors'], function () {
 
     Route::post('/api/agregar_operador', 'ApiController@agregar_operador');
     Route::post('/api/agregar_unidades', 'ApiController@agregar_unidades');
+    Route::post('/api/conseguir_viaje', 'ApiController@conseguir_viaje');
     Route::post('/api/verificar_session', 'ApiController@verificarSession');
 });

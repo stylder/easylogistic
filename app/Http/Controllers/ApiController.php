@@ -10,6 +10,7 @@ use App\TipoUnidad;
 use App\Unidades;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 
 class ApiController extends Controller
 {
@@ -128,9 +129,46 @@ class ApiController extends Controller
             $unidades_array[$key]=$unidades;
         }
 
-
-
-
         return (array("unidades"=>$unidades_array));
+    }
+
+
+    public function conseguir_viaje(Request $request){
+
+        $viaje = [];
+        $viaje['nombre']  = $request->get('nombre');
+        $viaje['correo']  = $request->get('correo');
+        $viaje['telefono']  = $request->get('telefono');
+        $viaje['estado_origen']  = $request->get('estado_origen');
+        $viaje['municipio_origen']  = $request->get('municipio_origen');
+        $viaje['fecha_salida']  = $request->get('fecha_salida');
+
+        $viaje['estado_destino']  = $request->get('estado_destino');
+        $viaje['municipio_destino']  = $request->get('municipio_destino');
+        $viaje['fecha_llegada']  = $request->get('fecha_llegada');
+
+        $viaje['tipo_unidad']  = $request->get('tipo_unidad');
+        $viaje['notas_adicionales']  = $request->get('notas_adicionales');
+
+
+        $this->enviar_correo_viaje($viaje);
+        return (array("unidades"=>$viaje));
+    }
+
+
+    private  function  enviar_correo_viaje($viaje){
+
+
+        $correos=['stylder@gmail.com',$viaje['correo']];
+
+        $data = array('nombre' => 'EasyLogistic', 'origen' => 'contactonannypets@gmail.com', 'subject' => 'Solicitud de Viaje' );
+
+
+        foreach ($correos as $correo){
+            Mail::send( 'emails.consigue_viaje', $viaje, function( $message ) use ($data, $correo)
+            {
+                $message->to( $correo )->from( $data['origen'], $data['nombre'] )->subject( $data['subject'] );
+            });
+        }
     }
 }

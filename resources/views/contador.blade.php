@@ -1,4 +1,3 @@
-
 <h4 class="text-center">Contadores</h4>
 <div class="row space-bottom-2x text-center" ng-controller="contadoresController">
     <div class="col-md-4">
@@ -6,8 +5,7 @@
              data-decimal="number" How many digits after decimal point.
              data-duration="number" The number of milliseconds it should take to finish counting.
         -->
-
-        <div class="counter" data-duration="1000">
+        <div class="counter" data-duration="10000">
             <header class="counter-icon">
                 <i class="icon-map"></i>
             </header>
@@ -22,7 +20,7 @@
              data-decimal="number" How many digits after decimal point.
              data-duration="number" The number of milliseconds it should take to finish counting.
         -->
-        <div class="counter" data-duration="1000">
+        <div class="counter" data-duration="10000">
             <header class="counter-icon">
                 <i class="fa fa-users"></i>
             </header>
@@ -37,7 +35,7 @@
              data-decimal="number" How many digits after decimal point.
              data-duration="number" The number of milliseconds it should take to finish counting.
         -->
-        <div class="counter" data-duration="1000">
+        <div class="counter" data-duration="10000">
             <header class="counter-icon">
                 <i class="fa fa-truck"></i>
             </header>
