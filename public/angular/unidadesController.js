@@ -5,7 +5,6 @@ app.controller('unidadesController', function ($scope, $rootScope, $http, API_UR
 
 
     $rootScope.$on('eventoOperador', function (event, args) {
-        console.log(">>>>>>>>", args.operador);
         $scope.operador = args.operador;
     });
 
@@ -13,7 +12,6 @@ app.controller('unidadesController', function ($scope, $rootScope, $http, API_UR
     $http.post(API_URL + "verificar_session")
         .then(function success(response) {
             $scope.operador = response.data;
-            console.log("session", response.data);
         });
 
 

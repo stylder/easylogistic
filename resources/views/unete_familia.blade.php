@@ -6,10 +6,6 @@
         </h2>
 
         <div class="row">
-
-            <buttton ng-click="evento()">
-                evento
-            </buttton>
             <div class="col-md-5">
                 <img src="img/home/39.jpg" alt="">
             </div>

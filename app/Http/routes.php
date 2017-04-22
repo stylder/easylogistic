@@ -36,9 +36,3 @@ Route::group(['middleware' => 'cors'], function () {
     Route::post('/api/agregar_unidades', 'ApiController@agregar_unidades');
     Route::post('/api/verificar_session', 'ApiController@verificarSession');
 });
-
-#Route::post('/api/v1/employees', 'Employees@store');
-#Route::post('/api/v1/employees/{id}', 'Employees@update');
-#Route::delete('/api/v1/employees/{id}', 'Employees@destroy');
-
-#Route::resource('main_page', 'MainPage');
