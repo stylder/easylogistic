@@ -26,6 +26,7 @@ Route::group(['middleware' => 'cors'], function () {
 
     Route::get('/api/mapa/', 'ApiController@obtener_mapa');
     Route::get('/api/tipo_unidad/', 'ApiController@tipo_unidad');
+    Route::get('/api/contadores/', 'ApiController@contadores');
     Route::get('/api/municipios/{id?}', 'ApiController@municipios');
 
     Route::get('/api/imagenes_unidad', 'ApiController@imagenes_unidad');

@@ -38,7 +38,11 @@
 
         @include('testimonios')
 
+        @include('contador')
+
         @include('mapa')
+
+        @include('equipo')
 
     </main>
 

@@ -28,6 +28,23 @@ class ApiController extends Controller
         return TipoUnidad::all();
     }
 
+    public function contadores()
+    {
+        $objeto=[];
+
+        $municipio = Operador::select(DB::raw('count(DISTINCT municipio ) as municipios'))
+            ->get('municipios')->first();
+
+        $operador = DB::table('operador')
+            ->count();
+        $unidades = DB::table('unidades')
+            ->count();
+
+        $objeto['operadores']=$operador;
+        $objeto['unidades']=$unidades;
+        $objeto['municipio']=$municipio;
+        return $objeto;
+    }
 
     /**
      * Display the specified resource.

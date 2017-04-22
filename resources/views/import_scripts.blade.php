@@ -36,6 +36,7 @@
 <script src="{{asset('angular/unidadesController.js')}}"></script>
 <script src="{{asset('angular/galeriaController.js')}}"></script>
 <script src="{{asset('angular/uneteController.js')}}"></script>
+<script src="{{asset('angular/contadoresController.js')}}"></script>
 
 
 

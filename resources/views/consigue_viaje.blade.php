@@ -1,6 +1,6 @@
 <section class="fw-section padding-top-3x" id="viajes" style="background-image: url(img/home/38.jpg)">
     <div class="overlay" style="background-color: rgba(33, 33, 33, .78);"></div>
-{{--
+
     <div class="container" ng-controller="operadoresController">
         <div class="row">
             <h1 class="text-light text-center">
@@ -75,8 +75,13 @@
 
                 <div class="row">
                     <div class="col-md-offset-5">
-                        <a href="#" class="btn btn-light waves-effect waves-light btn-circle">
-                            <i class="fa fa-search"></i></a>
+
+                        <a href="#" class="btn btn-default btn-rounded waves-effect waves-light btn-divided btn-icon-left" style="
+    background: white;
+    color: black;
+">
+                            <i class="fa fa-search"></i>Solicitar Viaje
+                        </a>
                     </div>
                 </div>
             </div>
