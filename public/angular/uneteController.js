@@ -1,6 +1,6 @@
 var app = angular.module('app');
 
-app.controller('uneteController', function MyCtrl($scope, $http, API_URL, ngNotify) {
+app.controller('uneteController', function MyCtrl($scope, $rootScope,$http, API_URL, ngNotify) {
 
     ngNotify.addTheme('notificaciones', 'notificaciones');
 
@@ -10,11 +10,11 @@ app.controller('uneteController', function MyCtrl($scope, $http, API_URL, ngNoti
 
 
     $scope.notificacion = function () {
-        ngNotify.set('Operador ' +'agregado correctamente','success');
+        ngNotify.set('Operador ' + 'agregado correctamente', 'success');
     };
 
     $scope.datos_operador = {
-        terminos:false
+        terminos: true
     };
 
     $http.get(API_URL + "estados")
@@ -33,16 +33,17 @@ app.controller('uneteController', function MyCtrl($scope, $http, API_URL, ngNoti
 
 
     $scope.agregarOperador = function () {
-        if ($scope.terminos) {
-            $http.post(API_URL + "agregar_unidades/", $scope.datos_operador)
+        if ($scope.datos_operador.terminos) {
+            $http.post(API_URL + "agregar_operador/", $scope.datos_operador)
                 .then(function (response) {
-                    ngNotify.set('Operador ' + response.data.nombre + ' ' + response.data.apellidos + 'agregado correctamente','success');
+                    $rootScope.$broadcast('eventoOperador', {operador: $scope.datos_operador});
+                    ngNotify.set('Operador ' + response.data.nombre + ' ' + response.data.apellidos + ' agregado correctamente', 'success');
+                    $scope.datos_operador = {};
                 });
         } else {
             ngNotify.set('Para poder registrarse en la familia EasyLogistic necesita que acepte los términos  y condiciones');
         }
     };
-
 
 
     $scope.change = function () {

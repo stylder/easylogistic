@@ -7,6 +7,9 @@
 
         <div class="row">
 
+            <buttton ng-click="evento()">
+                evento
+            </buttton>
             <div class="col-md-5">
                 <img src="img/home/39.jpg" alt="">
             </div>
@@ -78,7 +81,7 @@
                     @include('terminos_condiciones')
                 </div>
 
-
+                @{{ datos_operador }}
                 <div class="row">
                     <div class="col-sm-7">
                         <label class="checkbox checkbox-inline" >

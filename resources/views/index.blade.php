@@ -36,7 +36,7 @@
 
         @include('registro_unidad')
 
-        @include('testimonios')
+        {{--@include('testimonios')--}}
 
         @include('contador')
 
