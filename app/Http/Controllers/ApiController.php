@@ -41,9 +41,13 @@ class ApiController extends Controller
         $unidades = DB::table('unidades')
             ->count();
 
+
+
+
         $objeto['operadores']=$operador;
         $objeto['unidades']=$unidades;
         $objeto['municipio']=$municipio;
+
         return $objeto;
     }
 
@@ -139,16 +143,19 @@ class ApiController extends Controller
         $viaje['nombre']  = $request->get('nombre');
         $viaje['correo']  = $request->get('correo');
         $viaje['telefono']  = $request->get('telefono');
-        $viaje['estado_origen']  = $request->get('estado_origen');
-        $viaje['municipio_origen']  = $request->get('municipio_origen');
+
+        $viaje['estado_origen']  =  Estado::where('id_estado','=',$request->get('estado_origen'))->get()->first();
+        $viaje['municipio_origen']  = Municipio::where('id_municipio','=',$request->get('municipio_origen'))->get()->first();
         $viaje['fecha_salida']  = $request->get('fecha_salida');
 
-        $viaje['estado_destino']  = $request->get('estado_destino');
-        $viaje['municipio_destino']  = $request->get('municipio_destino');
+        $viaje['estado_destino']  = Estado::where('id_estado','=',$request->get('estado_destino'))->get()->first();
+        $viaje['municipio_destino']  =Municipio::where('id_municipio','=',$request->get('municipio_destino'))->get()->first();
         $viaje['fecha_llegada']  = $request->get('fecha_llegada');
 
-        $viaje['tipo_unidad']  = $request->get('tipo_unidad');
+        $viaje['tipo_unidad']  = TipoUnidad::where('id','=',$request->get('tipo_unidad'))->get()->first();
         $viaje['notas_adicionales']  = $request->get('notas_adicionales');
+
+
 
 
         $this->enviar_correo_viaje($viaje);

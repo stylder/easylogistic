@@ -36,6 +36,7 @@ app.controller('consigueViajeController', function ($scope, $http, API_URL, ngNo
 
             $http.post(API_URL + "conseguir_viaje/", $scope.viaje)
                 .then(function (response) {
+                    console.log(response.data);
                     ngNotify.set('Operador ' + response.data.nombre + ' ' + response.data.apellidos + ' agregado correctamente', 'success');
 
                 });
