@@ -37,6 +37,7 @@
 <script src="{{asset('angular/galeriaController.js')}}"></script>
 <script src="{{asset('angular/uneteController.js')}}"></script>
 <script src="{{asset('angular/contadoresController.js')}}"></script>
+<script src="{{asset('angular/footerController.js')}}"></script>
 
 
 

@@ -77,14 +77,13 @@
                     @include('terminos_condiciones')
                 </div>
 
-                @{{ datos_operador }}
+
                 <div class="row">
                     <div class="col-sm-7">
-                        <label class="checkbox checkbox-inline" >
-                            <input type="checkbox" ng-model="datos_operador.terminos"  ng-checked="datos_operador.terminos"  ng-change="change()">
-                            Acepto términos y condiciones
-                        </label>
-                         @{{ datos_operador.terminos }}
+                        <h5 class="teammate-name">
+                            Al registarte aceptas términos y condiciones
+                        </h5>
+
                     </div>
                     <div class="col-sm-5">
 
