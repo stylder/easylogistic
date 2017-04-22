@@ -1,5 +1,5 @@
-INSERT INTO easylogistic.tipo_unidad (unidad, created_at, updated_at) VALUES ('unidad 1', null, null);
-INSERT INTO easylogistic.tipo_unidad (unidad, created_at, updated_at) VALUES ('unidad 2', null, null);
-INSERT INTO easylogistic.tipo_unidad (unidad, created_at, updated_at) VALUES ('unidad 3', null, null);
-INSERT INTO easylogistic.tipo_unidad (unidad, created_at, updated_at) VALUES ('unidad 4', null, null);
-INSERT INTO easylogistic.tipo_unidad (unidad, created_at, updated_at) VALUES ('unidad 5', null, null);
+INSERT INTO easylogistic.tipo_unidad (unidad, created_at, updated_at) VALUES ('Tolva o Gondola', null, null);
+INSERT INTO easylogistic.tipo_unidad (unidad, created_at, updated_at) VALUES ('Jaula a Granel', null, null);
+INSERT INTO easylogistic.tipo_unidad (unidad, created_at, updated_at) VALUES ('Caja Cerrada de 48 Pies', null, null);
+INSERT INTO easylogistic.tipo_unidad (unidad, created_at, updated_at) VALUES ('Caja Cerrada de 53 Pies', null, null);
+
