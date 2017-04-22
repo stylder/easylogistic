@@ -8,7 +8,7 @@ app.controller('unidadesController', function ($scope, $http, API_URL,ngNotify) 
     $http.post(API_URL + "verificar_session")
         .then(function success(response) {
             $scope.operador = response.data;
-            console.log("session", response);
+            console.log("session", response.data);
         });
 
     
