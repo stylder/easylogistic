@@ -1,7 +1,7 @@
 var app = angular.module('app');
 
 
-app.controller('unidadesController', function ($scope, $http, API_URL) {
+app.controller('unidadesController', function ($scope, $http, API_URL,ngNotify) {
 
 
 
@@ -17,9 +17,7 @@ app.controller('unidadesController', function ($scope, $http, API_URL) {
     var nuevaUnidad ={} ;
 
     $scope.unidades.push(nuevaUnidad);
-    $scope.getUnidades = function(){
-        console.log($scope.unidades);
-    }
+
 
     $scope.addRow = function () {
         var nuevaUnidad ={} ;
@@ -43,6 +41,18 @@ app.controller('unidadesController', function ($scope, $http, API_URL) {
             .then(function (response) {
                 console.log("Eliminar", response);
             });
+    };
+
+
+    $scope.agregarUnidades = function () {
+
+        console.log("Agregando:",$scope.unidades)
+            $http.post(API_URL + "agregar_unidades/", {unidades:$scope.unidades})
+                .then(function (response) {
+                    console.log("->>>",response)
+                    ngNotify.set('Se agregaron '+response.data.unidades.length+' unidades correctamente','success');
+                });
+
     };
 
 

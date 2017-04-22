@@ -7,7 +7,6 @@ app.directive('selectLast', function () {
         restrict: 'A',
         transclude: true,
         templateUrl: 'angular/unidades_row.html',
-
         replace: true
     };
 });

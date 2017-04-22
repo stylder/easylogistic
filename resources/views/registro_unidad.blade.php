@@ -32,22 +32,14 @@
 
         <div class="row ">
 
-            <button ng-click="getUnidades()" >
-                Unidades
-            </button>@{{unidades}}
+            @{{unidades}}
 
-
-            <div select-last ng-repeat='unidad in unidades'  data-ng-model="unidad" >
-
-            </div>
-
-
-
+            <div select-last ng-repeat='unidad in unidades'  data-ng-model="unidad"></div>
 
             <div class="row padding-top-2x">
                 <div class="col-md-9"></div>
                 <div class="col-md-2">
-                    <a href="#" class="btn btn-default btn-rounded waves-effect waves-light btn-divided btn-icon-left">
+                    <a href="#" class="btn btn-default btn-rounded waves-effect waves-light btn-divided btn-icon-left" ng-click="agregarUnidades()">
                         <i class="fa fa-truck"></i>Guardar  Unidades
                     </a>
                 </div>

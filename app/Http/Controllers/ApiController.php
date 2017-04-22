@@ -7,6 +7,7 @@ use App\Imagen;
 use App\Municipio;
 use App\Operador;
 use App\TipoUnidad;
+use App\Unidades;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -83,10 +84,36 @@ class ApiController extends Controller
     }
 
     public function verificarSession(Request $request){
+
         $nombre = $request->session()->get('nombre');
         $apellidos = $request->session()->get('apellidos');
         $licencia = $request->session()->get('licencia');
 
         return (array('nombre' => $nombre, 'apellidos' =>$apellidos, 'licencia' => $licencia));
+    }
+
+
+    public function agregar_unidades(Request $request){
+
+        $unidades_array=[];
+
+        $data = $request->all();
+
+        foreach ($data['unidades'] as $key =>$unidad) {
+            $unidades= new Unidades([
+                    'marca'     => $unidad['marca'],
+                    'modelo'    => $unidad['modelo'],
+                    'placas'    => $unidad['placa'],
+                    'no_seguro' => $unidad['seguro'],
+                    'tipo_unidad'=> $unidad['tipo_unidad']
+            ]);
+            $unidades->save();
+            $unidades_array[$key]=$unidades;
+        }
+
+
+
+
+        return (array("unidades"=>$unidades_array));
     }
 }

@@ -34,7 +34,7 @@ app.controller('uneteController', function MyCtrl($scope, $http, API_URL, ngNoti
 
     $scope.agregarOperador = function () {
         if ($scope.terminos) {
-            $http.post(API_URL + "agregar_operador/", $scope.datos_operador)
+            $http.post(API_URL + "agregar_unidades/", $scope.datos_operador)
                 .then(function (response) {
                     ngNotify.set('Operador ' + response.data.nombre + ' ' + response.data.apellidos + 'agregado correctamente','success');
                 });
