@@ -34,7 +34,7 @@
             <div class="col-sm-2">
                 <div class="teammate text-center">
                     <div class="thumbnail">
-                        <img src="img/team/skarleth.jpg" alt="Team">
+                        <img src="img/team/jazmn.jpg" alt="Team">
                     </div>
                     <h3 class="teammate-name">Vanessa Jazmin Muro Ríos</h3>
                     <p class="teammate-job">Ing. en Gestión Empresarial</p>
@@ -44,7 +44,7 @@
             <div class="col-sm-2">
                 <div class="teammate text-center">
                     <div class="thumbnail">
-                        <img src="img/team/skarleth.jpg" alt="Team">
+                        <img src="img/team/bere.jpg" alt="Team">
                     </div>
                     <h3 class="teammate-name">Sonia Berenice Rodriguez Gutierrez</h3>
                     <p class="teammate-job">Ing. en Gestión Empresarial</p>

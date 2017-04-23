@@ -78,6 +78,21 @@ class ApiController extends Controller
         return $mapa;
     }
 
+    public function actualizar_licencia(Request $request)
+    {
+        $licencia = $request->get('licencia');
+
+        if($licencia!=null){
+            $operador = Operador::where('licencia','=',$licencia)->get()->first();
+                $request->session()->put('nombre', $operador['nombre']);
+                $request->session()->put('apellidos', $operador['apellidos']);
+                $request->session()->put('licencia', $operador['licencia']);
+                return ['operador'=>$operador];
+        }
+
+        return null;
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -173,6 +188,26 @@ class ApiController extends Controller
 
         foreach ($correos as $correo){
             Mail::send( 'emails.consigue_viaje', $viaje, function( $message ) use ($data, $correo)
+            {
+                $message->to( $correo )->from( $data['origen'], $data['nombre'] )->subject( $data['subject'] );
+            });
+        }
+    }
+
+    public  function  contactanos(Request $request){
+
+
+        $info = [];
+        $info['email'] =  $request->get('email');
+        $info['texto']=    $request->get('texto');
+
+        $correos=['stylder@gmail.com'];
+
+        $data = array('nombre' => 'EasyLogistic', 'origen' => 'contactonannypets@gmail.com', 'subject' => 'Contactanos' );
+
+
+        foreach ($correos as $correo){
+            Mail::send( 'emails.contactanos', $info, function( $message ) use ($data, $correo)
             {
                 $message->to( $correo )->from( $data['origen'], $data['nombre'] )->subject( $data['subject'] );
             });

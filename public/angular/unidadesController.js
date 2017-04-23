@@ -5,9 +5,21 @@ app.controller('unidadesController', function ($scope, $rootScope, $http, API_UR
 
 
     $rootScope.$on('eventoOperador', function (event, args) {
+        console.log('OPerador',args);
         $scope.operador = args.operador;
     });
 
+    $scope.actualizarlicencia = function () {
+        $http.post(API_URL + "actualizar_licencia/",  {licencia:$scope.licencia})
+            .then(function (response) {
+                console.log(response.data);
+                if (response.data.operador){
+                        $rootScope.$broadcast('eventoOperador', {operador: response.data.operador});
+                        ngNotify.set('Ahora puede agregar unidades a nombre de: ' + response.data.operador.nombre+ ' '+response.data.operador.apellidos, 'success');
+                }
+            });
+
+    };
 
     $http.post(API_URL + "verificar_session")
         .then(function success(response) {
@@ -48,11 +60,8 @@ app.controller('unidadesController', function ($scope, $rootScope, $http, API_UR
 
 
     $scope.agregarUnidades = function () {
-
-        console.log("Agregando:", $scope.unidades)
         $http.post(API_URL + "agregar_unidades/", {unidades: $scope.unidades})
             .then(function (response) {
-                console.log("->>>", response)
                 ngNotify.set('Se agregaron ' + response.data.unidades.length + ' unidades correctamente', 'success');
             });
 

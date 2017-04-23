@@ -25,14 +25,11 @@
                         </h3>
                         <form method="post" class="subscribe-box">
                             <input type="text" class="form-control input-sm" placeholder="Correo" ng-model="contacto.email">
-
                             <textarea class="form-control space-bottom" rows="6" ng-model="contacto.texto"
                                       placeholder="Mensaje"></textarea>
                             <button ng-click="enviarCorreo()" class="btn btn-primary btn-block btn-sm waves-effect waves-light">
                                 Enviar
                             </button>
-
-                            @{{ contacto }}
                         </form>
                     </section><!-- widget_subscribe -->
                 </div><!-- .col-md-3 -->
