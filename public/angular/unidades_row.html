@@ -1,27 +1,21 @@
 <div class="row  padding-top">
     <div class="row">
-
-        {{ unidad}}
         <div class="container">
             <div class="col-md-2">
-                <input type="text" class="form-control" placeholder="" ng-model="unidad.marca">
-            </div>
-
-            <div class="col-md-2">
-                <input type="text" class="form-control" placeholder="" ng-model="unidad.modelo">
+                <input type="text" class="form-control" placeholder="" ng-model="unidad.marca" required>
             </div>
             <div class="col-md-2">
-                <input type="text" class="form-control" placeholder="" ng-model="unidad.placa">
+                <input type="text" class="form-control" placeholder="" ng-model="unidad.modelo" required>
             </div>
             <div class="col-md-2">
-                <input type="text" class="form-control" placeholder="" ng-model="unidad.seguro">
+                <input type="text" class="form-control" placeholder="" ng-model="unidad.placa" required>
             </div>
             <div class="col-md-2">
-                <select ng-model="unidad.tipo_unidad" >
-                    <option ng-repeat="unidad in tipo_unidades"
-                            value={{unidad.id}}>
-                        {{unidad.unidad}}
-                    </option>
+                <input type="text" class="form-control" placeholder="" ng-model="unidad.seguro" required>
+            </div>
+            <div class="col-md-2">
+                <select ng-model="unidad.tipo_unidad">
+                    <option ng-repeat="unidad in tipo_unidades" value={{unidad.id}}>{{unidad.unidad}}</option>
                 </select>
             </div>
             <div class="col-md-1">
@@ -38,8 +32,8 @@
 
     </div>
 
-    <div flow-init="{target: '/images/upload' + 1, testChunks: false,
-                     query: {  'model_class_path': 'App\\Unidades', 'path': 'images/unidades'}}"
+
+    <div flow-init="config"
 
          flow-files-submitted="$flow.upload()"
          flow-file-success="$file.msg = $message">

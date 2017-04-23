@@ -2,12 +2,12 @@
 
 LISTO
 * Parte de unidades, mostrar u ocultar dependiendo de la licencia
-
-HACIENDO
 * Validar si existe licencia
 
+HACIENDO
+* Validar todos los inputs
+
 POR HACER
-* Validar todos los imputs
 * Verificar campo de Licencia en imagenes
 * Mostrar galeria con fotografías
 

@@ -101,6 +101,7 @@ class ApiController extends Controller
      */
     public function agregar_operador(Request $request)
     {
+
         $operador = new Operador();
         $operador -> nombre     = $request->get('nombre');
         $operador -> apellidos  = $request->get('apellidos');

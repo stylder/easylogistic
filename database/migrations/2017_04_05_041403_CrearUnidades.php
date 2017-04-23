@@ -19,6 +19,7 @@ class CrearUnidades extends Migration
             $table->string('placas');
             $table->string('no_seguro');
             $table->integer('tipo_unidad')->unsigned();
+            $table->string('licencia');
             $table->timestamps();
         });
     }

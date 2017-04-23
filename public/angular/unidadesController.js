@@ -18,7 +18,6 @@ app.controller('unidadesController', function ($scope, $rootScope, $http, API_UR
                         ngNotify.set('Ahora puede agregar unidades a nombre de: ' + response.data.operador.nombre+ ' '+response.data.operador.apellidos, 'success');
                 }
             });
-
     };
 
     $http.post(API_URL + "verificar_session")
@@ -74,12 +73,16 @@ app.controller('unidadesController', function ($scope, $rootScope, $http, API_UR
         });
 
 
-    $scope.unidad = {};
-    $scope.unidad.operador = 'new';
+
     $scope.upload = upload;
     $scope.setFileName = setFileName;
     $scope.image_root = '/images/unidades/';
 
+
+    $scope.$on('flow::fileAdded', function (event, $flow, flowFile) {
+        //$flow.opts.query = { someParam: yourValue, otherParam: otherValue };
+        console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
+    });
 
     function setFileName(flow_files) {
         $scope.image = $scope.image_root + flow_files[0].name;
