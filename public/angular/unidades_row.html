@@ -32,11 +32,12 @@
 
     </div>
 
+    {{unidad.placa}}
 
-    <div flow-init="config"
-
-         flow-files-submitted="$flow.upload()"
-         flow-file-success="$file.msg = $message">
+    <div    ng-if="unidad.placa"
+            flow-init="config"
+            flow-files-submitted="$flow.upload()"
+            flow-file-success="$file.msg = $message">
 
         <div class="dropUpload">
             <div class=""

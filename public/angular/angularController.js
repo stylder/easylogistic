@@ -16,7 +16,7 @@ app.directive('selectLast', function () {
                 query: function (flowFile, flowChunk) {
                     // function will be called for every request
                     return {
-                        model_class_path: 'unidad' , path: 'images/unidades'
+                        model_class_path: $scope.unidad.placa , path: 'images/unidades'
                     }
                 }
             };
