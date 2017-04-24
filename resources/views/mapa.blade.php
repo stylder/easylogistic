@@ -1,5 +1,5 @@
 <!-- Full Width Map -->
-<div class="fw-section padding-top-3x" id="mapa" ng-controller="mapaController">
+<div class="fw-section" id="mapa" ng-controller="mapaController">
     <!-- Wrap your map with ".google-map-container" for usage with info box. -->
 
         <ng-map default-style="true" zoom="6" center="24.6565829, -101.6932475">

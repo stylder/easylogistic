@@ -6,7 +6,7 @@
                 <div class="col-md-3 col-sm-12">
                     <section class="widget widget_text">
                         <a class="site-logo">
-                            <img src="img/logos-main/logo_01.png" alt="Promo">
+                            <img src="img/logos/logo1.png" alt="Promo">
                         </a><!-- .site-logo -->
                         <p>¿Necesitas hablar con nosotros? </p>
                         <p>Contáctanos vía correo eléctronico</p>

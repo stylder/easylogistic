@@ -40,12 +40,14 @@
 <script src="{{asset('angular/footerController.js')}}"></script>
 
 
+<script src="{{asset('js/countdown.js')}}"></script>
 
 <script src="{{asset('js/ng-flow-standalone.js')}}"></script>
 
 <script src="{{asset('js/ng-notify.min.js')}}"></script>
 
 <script src="{{asset('js/picker.js')}}"></script>
+
 <script src="{{asset('js/picker.date.js')}}"></script>
 
 <script src="{{asset('js/es_ES.js')}}"></script>

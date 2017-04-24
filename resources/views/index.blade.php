@@ -24,7 +24,8 @@
     @include('header')
     <main>
 
-        @include('video')
+        {{--@include('video')--}}
+        @include('construccion')
 
         @include('tipos_transporte')
 

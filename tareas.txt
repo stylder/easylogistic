@@ -3,11 +3,12 @@
 LISTO
 * Parte de unidades, mostrar u ocultar dependiendo de la licencia
 * Validar si existe licencia
+* Verificar campo de Licencia en imagenes
 
 HACIENDO
 * Validar todos los inputs
 
 POR HACER
-* Verificar campo de Licencia en imagenes
+* Mejorar los correos GUI
 * Mostrar galeria con fotografías
 

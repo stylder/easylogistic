@@ -346,7 +346,7 @@ jQuery(document).ready(function($) {
 
 	// Contdown
 	if($('.countdown').length > 0) {
-		$('.countdown').countdown('2017/10/10', function(event) {
+		$('.countdown').countdown('2017/05/10', function(event) {
 		  var $this = $(this).html(event.strftime(''
 		    + '<div class="count-item">%D<div>Days</div></div>'
 		    + '<div class="count-item">%H<div>hours</div></div>'
