@@ -8,7 +8,7 @@ class Unidades extends Model
 {
     protected $primaryKey = 'id';
     protected $table = 'unidades';
-    protected $fillable = array('marca','modelo','placas','no_seguro','tipo_unidad');
+    protected $fillable = array('marca','modelo','placas','no_seguro','tipo_unidad','licencia');
 
     public function images()
     {

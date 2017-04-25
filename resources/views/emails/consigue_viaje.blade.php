@@ -358,11 +358,10 @@
                                             Estimado (a): <?php echo $nombre; ?>
                                         </p>
                                         <p>
-                                            Nos alegra muchísimo que te hayas decidido a unirte a nuestra familia.
-                                            En breve uno de nuestros operadores se pondrán en contacto contigo ya que te
-                                            registraste con los siguentes datos:
+                                            Nos alegra muchísimo que confíes en nosotros para transportar tu valiosa carga, los datos que proporcionaste se utilizarán para buscar la mejor opción de transporte:
                                         </p>
 
+                                        <br>
                                         <table style="width:100%">
                                             <tr>
                                                 <td>Nombre</td>
@@ -413,7 +412,6 @@
                                         </table>
                                         <br>
                                         <p>En breve el equipo de EasyLogistic se contactará contigo</p>
-                                        <p>EasyLogistic</p>
                                     </td>
                                 </tr>
                             </table>

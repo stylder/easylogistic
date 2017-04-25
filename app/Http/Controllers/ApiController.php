@@ -65,7 +65,16 @@ class ApiController extends Controller
 
     public function imagenes_unidad()
     {
-        return Imagen::all();
+        $imagenes=[];
+
+        foreach (TipoUnidad::all()as $key =>$tipo){
+            $imagenes[$key] = DB::table('unidades')
+                ->leftJoin('imagenes','unidades.placas','=','imagenes.imageable_type')
+                ->where('unidades.tipo_unidad', '=', $tipo['id'])
+                ->get();;
+        }
+
+        return $imagenes;
     }
 
 
@@ -134,14 +143,15 @@ class ApiController extends Controller
     public function agregar_unidades(Request $request){
 
         $unidades_array=[];
-
         $data = $request->all();
+        $licencia = $request->session()->get('licencia');
 
         foreach ($data['unidades'] as $key =>$unidad) {
             $unidades= new Unidades([
                     'marca'     => $unidad['marca'],
                     'modelo'    => $unidad['modelo'],
                     'placas'    => $unidad['placa'],
+                    'licencia'  => $licencia,
                     'no_seguro' => $unidad['seguro'],
                     'tipo_unidad'=> $unidad['tipo_unidad']
             ]);
@@ -182,9 +192,9 @@ class ApiController extends Controller
     private  function  enviar_correo_viaje($viaje){
 
 
-        $correos=['stylder@gmail.com',$viaje['correo']];
+        $correos=['stylder@gmail.com','irmaskarleth@hotmail.com',$viaje['correo']];
 
-        $data = array('nombre' => 'EasyLogistic', 'origen' => 'contactonannypets@gmail.com', 'subject' => 'Solicitud de Viaje' );
+        $data = array('nombre' => 'EasyLogistic', 'origen' => 'contactoeasylogistic@gmail.com', 'subject' => 'Solicitud de Viaje' );
 
 
         foreach ($correos as $correo){
@@ -202,9 +212,9 @@ class ApiController extends Controller
         $info['email'] =  $request->get('email');
         $info['texto']=    $request->get('texto');
 
-        $correos=['stylder@gmail.com'];
+        $correos=['stylder@gmail.com','irmaskarleth@hotmail.com'];
 
-        $data = array('nombre' => 'EasyLogistic', 'origen' => 'contactonannypets@gmail.com', 'subject' => 'Contactanos' );
+        $data = array('nombre' => 'EasyLogistic', 'origen' => 'contactoeasylogistic@gmail.com', 'subject' => 'Contactanos' );
 
 
         foreach ($correos as $correo){

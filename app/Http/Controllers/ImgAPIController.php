@@ -76,9 +76,6 @@ class ImgAPIController extends Controller
 
     public function deleteImagen(Request $request){
 
-
-
-
         $imagen     = $request->get('imagen');
         $licencia   = $request->get('licencia');
 

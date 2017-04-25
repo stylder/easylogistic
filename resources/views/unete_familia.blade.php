@@ -7,7 +7,7 @@
 
         <div class="row">
             <div class="col-md-5">
-                <img src="img/home/39.jpg" alt="">
+                <img src="img/features/driver.png" alt="">
             </div>
 
             <div class="col-md-7">

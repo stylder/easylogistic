@@ -2,7 +2,7 @@
 
 <!-- Page Title -->
 <!--Add modifier class : "pt-fullwidth" to stretch page title and make it occupy 100% of the page width, or "pt-mega", for full width and imaged background -->
-<section class="page-title pt-mega bg-parallax" data-stellar-background-ratio="0.65" style="background-image: url(img/page-title/page-hiring.jpg)" ng-controller="contadoresController">
+<section class="page-title pt-mega bg-parallax" data-stellar-background-ratio="0.65" style="background-image: url(img/seccions/truck2.jpg)" ng-controller="contadoresController">
     <span class="overlay" style="background-color: rgba(0, 0, 0, .6);"></span>
     <div class="title text-light">
         <h1>Contadores</h1>

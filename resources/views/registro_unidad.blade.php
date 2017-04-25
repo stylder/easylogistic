@@ -63,11 +63,7 @@
 
 
             <div class="row ">
-
-                @{{unidades}}
-
                 <div select-last ng-repeat='unidad in unidades' data-ng-model="unidad"></div>
-
                 <div class="row padding-top-2x">
                     <div class="col-md-9"></div>
                     <div class="col-md-2">

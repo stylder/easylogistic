@@ -31,7 +31,7 @@
 
         @include('consigue_viaje')
 
-        {{--@include('galeria')--}}
+        @include('galeria')
 
         @include('unete_familia')
 
@@ -47,10 +47,6 @@
 
     </main>
 
-    <!-- Scroll To Top Button -->
-    <a href="#" class="scroll-to-top-btn">
-        <i class="fa fa-angle-up"></i>
-    </a><!-- .scroll-to-top-btn -->
 
     @include('footer')
 
