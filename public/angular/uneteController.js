@@ -34,7 +34,7 @@ app.controller('uneteController', function MyCtrl($scope, $rootScope,$http, API_
 
     $scope.agregarOperador = function () {
         if ($scope.datos_operador.terminos) {
-            $http.post(API_URL + "agregar_operador/", $scope.datos_operador)
+            $http.post(API_URL + "agregar_operador", $scope.datos_operador)
                 .then(function (response) {
                     $rootScope.$broadcast('eventoOperador', {operador: $scope.datos_operador});
                     ngNotify.set('Operador ' + response.data.nombre + ' ' + response.data.apellidos + ' agregado correctamente', 'success');

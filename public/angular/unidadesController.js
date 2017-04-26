@@ -5,12 +5,11 @@ app.controller('unidadesController', function ($scope, $rootScope, $http, API_UR
 
 
     $rootScope.$on('eventoOperador', function (event, args) {
-        console.log('OPerador',args);
         $scope.operador = args.operador;
     });
 
     $scope.actualizarlicencia = function () {
-        $http.post(API_URL + "actualizar_licencia/",  {licencia:$scope.licencia})
+        $http.post(API_URL + "actualizar_licencia",  {licencia:$scope.licencia})
             .then(function (response) {
                 console.log(response.data);
                 if (response.data.operador){
@@ -59,7 +58,7 @@ app.controller('unidadesController', function ($scope, $rootScope, $http, API_UR
 
 
     $scope.agregarUnidades = function () {
-        $http.post(API_URL + "agregar_unidades/", {unidades: $scope.unidades})
+        $http.post(API_URL + "agregar_unidades", {unidades: $scope.unidades})
             .then(function (response) {
                 ngNotify.set('Se agregaron ' + response.data.unidades.length + ' unidades correctamente', 'success');
             });

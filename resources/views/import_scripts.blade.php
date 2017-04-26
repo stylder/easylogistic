@@ -26,6 +26,7 @@
 
 <script src="{{asset('js/angular.min.js')}}"></script>
 
+<script src="{{asset('galeria/gallery.js')}}"></script>
 
 <!--Google Maps API-->
 <script src="http://maps.google.com/maps/api/js?key=AIzaSyA5DLwPPVAz88_k0yO2nmFe7T9k1urQs84"></script>
@@ -35,7 +36,6 @@
 <script src="{{asset('angular/mapaController.js')}}"></script>
 <script src="{{asset('angular/consigueViajeController.js')}}"></script>
 <script src="{{asset('angular/unidadesController.js')}}"></script>
-<script src="{{asset('angular/galeriaController.js')}}"></script>
 <script src="{{asset('angular/uneteController.js')}}"></script>
 <script src="{{asset('angular/contadoresController.js')}}"></script>
 <script src="{{asset('angular/footerController.js')}}"></script>
@@ -55,7 +55,7 @@
 
 <script src="{{asset('js/scripts.js')}}"></script>
 
-<script src="{{asset('galeria/gallery.js')}}"></script>
+
 
 <script>
     $('.datepicker').pickadate({ defaults: {} });

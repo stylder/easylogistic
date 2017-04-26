@@ -21,7 +21,7 @@
                         <div class="row">
                             <div class="col-md-2"></div>
                             <div class="col-md-8">
-                                <img class="img-responsive" src="img/home/39.jpg" alt="">
+                                <img class="img-responsive" src="img/features/39.jpg" alt="">
                             </div>
                             <div class="col-md-2"></div>
                         </div>

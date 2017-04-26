@@ -1,0 +1,21 @@
+<div class="wrap-gallery">
+    <div class="gallery">
+        <div class="imgWrap imgWrap2" style="background-image:url(http://lorempixel.com/1920/1080/fashion/9);" ng-repeat="tipo_transporte in imagenes">
+            <div class="full-content">
+                <div class="images">
+                    <ul class="gallery">
+                        <li ng-repeat="imagen in tipo_transporte">
+                            <a ng-href="{{imagen.path}}"
+                               class="with-caption image-link">
+                                <img ng-src="{{imagen.path}}"/>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!--Image Gallery Ends-->
+            </div>
+        </div>
+    </div>
+
+    <div id="close" title="Close (Esc)" class="mfp-close">XXXS</div>
+</div>

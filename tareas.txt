@@ -1,15 +1,14 @@
 
 
 LISTO
-* Parte de unidades, mostrar u ocultar dependiendo de la licencia
-* Validar si existe licencia
-* Verificar campo de Licencia en imagenes
-* Mejorar los correos GUI
+
 
 HACIENDO
-* Mostrar galeria con fotografías
+
 
 POR HACER
+* Enviar correo de notificación de registro de operador
 * Validar todos los inputs
-
+* Mostrar galeria con fotografías
+* Nombre fotografía con licencia
 

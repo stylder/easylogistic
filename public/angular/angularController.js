@@ -11,7 +11,7 @@ app.directive('selectLast', function () {
         controller: function ($scope) {
 
             $scope.config = {
-                target: '/images/upload' + 1,
+                target: '/images/upload',
                 testChunks: false,
                 query: function (flowFile, flowChunk) {
                     // function will be called for every request
@@ -20,6 +20,24 @@ app.directive('selectLast', function () {
                     }
                 }
             };
+        }
+    };
+});
+
+
+app.directive('gallery', function () {
+    return {
+        restrict: 'A',
+        transclude: true,
+        templateUrl: 'angular/galeria.html',
+        replace: true,
+        controller: function ($scope, $http, API_URL) {
+
+            $http.get(API_URL + "imagenes_unidad")
+                .then(function success(response) {
+                    $scope.imagenes = response.data;
+                    console.log('Imagenes',response.data)
+                });
         }
     };
 });

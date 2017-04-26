@@ -5,7 +5,7 @@
     <div class="nav-bar-inner">
         <div class="container">
             <a href="index.html" class="site-logo">
-                <img src="img/logos/logo1.png" alt="Promo">
+                <img src="img/logos-main/logo2.png" alt="Promo">
             </a><!-- .site-logo -->
 
             <!-- For alignment navigation use .menu-left-align, .menu-right-align or .menu-center-align class. To get light skin, use .light-skin. -->
