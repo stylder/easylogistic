@@ -3,7 +3,7 @@
 <head>
     <meta name="viewport" content="width=device-width"/>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <title>Contacto</title>
+    <title>Bienvenido <?php echo $nombre; ?></title>
     <style>
         /* -------------------------------------
             GLOBAL RESETS
@@ -344,7 +344,10 @@
         <td>&nbsp;</td>
         <td class="container">
             <div class="content">
+
+
                 <table class="main">
+
                     <!-- START MAIN CONTENT AREA -->
                     <tr>
                         <td class="wrapper">
@@ -352,12 +355,58 @@
                                 <tr>
                                     <td>
                                         <p>
-                                            Correo: <?php echo $email; ?>
+                                            Estimado (a): <?php echo $nombre; ?> <?php echo $apellidos; ?>
                                         </p>
-                                        <br>
                                         <p>
-                                            <?php echo $texto; ?>
+                                            Nos alegra muchísimo que te unieras a la gran familia EasyLogistic.
+                                            Los datos con lo que te registraste son los siguientes:
                                         </p>
+
+                                        <br>
+                                        <table style="width:100%">
+                                            <tr>
+                                                <td>Nombre</td>
+                                                <td><?php echo $nombre; ?></td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>Apellidos</td>
+                                                <td><?php echo $apellidos; ?></td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>Celular</td>
+                                                <td><?php echo $telefono; ?></td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>Email</td>
+                                                <td><?php echo $correo; ?></td>
+                                            </tr>
+
+
+                                            <tr>
+                                                <td>No. Licencia</td>
+                                                <td><?php echo $licencia; ?></td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>No. Seguro</td>
+                                                <td><?php echo $seguro; ?></td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>Estado</td>
+                                                <td><?php echo $estado->estado; ?></td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>Municipio</td>
+                                                <td><?php echo $municipio->municipio; ?></td>
+                                            </tr>
+                                        </table>
+                                        <br>
+                                        <p>En breve el equipo de EasyLogistic se contactará contigo</p>
                                     </td>
                                 </tr>
                             </table>
@@ -372,7 +421,7 @@
                     <table border="0" cellpadding="0" cellspacing="0">
                         <tr>
                             <td class="content-block powered-by">
-                                <a href="">EasyLogistic</a>.
+                                <a>EasyLogistic</a>.
                             </td>
                         </tr>
                     </table>

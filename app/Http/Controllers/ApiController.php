@@ -127,6 +127,22 @@ class ApiController extends Controller
         $request->session()->put('apellidos', $request->get('apellidos'));
         $request->session()->put('licencia', $request->get('licencia'));
 
+
+
+
+        $operador_correo = [];
+        $operador_correo['estado']      =  Estado::where('id_estado','=',$request->get('estado'))->get()->first();
+        $operador_correo['municipio']   = Municipio::where('id_municipio','=',$request->get('municipio'))->get()->first();
+        $operador_correo ['nombre']     = $request->get('nombre');
+        $operador_correo ['apellidos']  = $request->get('apellidos');
+        $operador_correo ['correo']     = $request->get('correo');
+        $operador_correo ['telefono']   = $request->get('telefono');
+        $operador_correo ['seguro']     = $request->get('seguro');
+        $operador_correo ['licencia']   = $request->get('licencia');
+
+
+        $this->enviar_correo_operador($operador_correo);
+
         return $operador;
     }
 
@@ -188,6 +204,23 @@ class ApiController extends Controller
         return (array("unidades"=>$viaje));
     }
 
+
+    private  function  enviar_correo_operador($operador){
+
+
+        #$correos=['stylder@gmail.com','irmaskarleth@hotmail.com',$operador['correo']];
+        $correos=['stylder@gmail.com',$operador['correo']];
+
+        $data = array('nombre' => 'EasyLogistic', 'origen' => 'contactoeasylogistic@gmail.com', 'subject' => 'Registro Operador' );
+
+
+        foreach ($correos as $correo){
+            Mail::send( 'emails.operador', $operador, function($message ) use ($data, $correo)
+            {
+                $message->to( $correo )->from( $data['origen'], $data['nombre'] )->subject( $data['subject'] );
+            });
+        }
+    }
 
     private  function  enviar_correo_viaje($viaje){
 
