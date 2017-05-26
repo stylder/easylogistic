@@ -1,6 +1,6 @@
 var app = angular.module('app', ['flow', 'ngMap', 'ngNotify']);
 
-app.constant('API_URL', 'http://localhost:8000/api/');
+app.constant('API_URL', location.href+'/api/');
 
 app.directive('selectLast', function () {
     return {
