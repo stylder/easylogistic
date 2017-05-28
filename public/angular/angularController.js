@@ -11,7 +11,7 @@ app.directive('selectLast', function () {
         controller: function ($scope) {
 
             $scope.config = {
-                target: '/images/upload',
+                target: '/images/' + 1,
                 testChunks: false,
                 query: function (flowFile, flowChunk) {
                     // function will be called for every request
@@ -45,9 +45,9 @@ app.directive('gallery', function () {
 
 app.config(function FlowConfig(flowFactoryProvider) {
     flowFactoryProvider.defaults = {
-        speedSmoothingFactor: 0.2,
-        maxChunkRetries: 10,
-        simultaneousUploads: 10
+        speedSmoothingFactor: 0.02,
+        maxChunkRetries: 15,
+        simultaneousUploads: 15
     };
 });
 

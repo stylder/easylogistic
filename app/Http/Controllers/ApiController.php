@@ -208,8 +208,8 @@ class ApiController extends Controller
     private  function  enviar_correo_operador($operador){
 
 
-        #$correos=['stylder@gmail.com','irmaskarleth@hotmail.com',$operador['correo']];
-        $correos=['stylder@gmail.com',$operador['correo']];
+        $correos=['stylder@gmail.com','contactoeasylogistic@gmail.com',$operador['correo']];
+        #$correos=['stylder@gmail.com',$operador['correo']];
 
         $data = array('nombre' => 'EasyLogistic', 'origen' => 'contactoeasylogistic@gmail.com', 'subject' => 'Registro Operador' );
 
@@ -225,7 +225,7 @@ class ApiController extends Controller
     private  function  enviar_correo_viaje($viaje){
 
 
-        $correos=['stylder@gmail.com','irmaskarleth@hotmail.com',$viaje['correo']];
+        $correos=['stylder@gmail.com','contactoeasylogistic@gmail.com',$viaje['correo']];
 
         $data = array('nombre' => 'EasyLogistic', 'origen' => 'contactoeasylogistic@gmail.com', 'subject' => 'Solicitud de Viaje' );
 
@@ -245,7 +245,7 @@ class ApiController extends Controller
         $info['email'] =  $request->get('email');
         $info['texto']=    $request->get('texto');
 
-        $correos=['stylder@gmail.com','irmaskarleth@hotmail.com'];
+        $correos=['stylder@gmail.com','contactoeasylogistic@gmail.com'];
 
         $data = array('nombre' => 'EasyLogistic', 'origen' => 'contactoeasylogistic@gmail.com', 'subject' => 'Contactanos' );
 

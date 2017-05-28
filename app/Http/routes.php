@@ -18,8 +18,9 @@ Route::get('/', function () {
 
 
 Route::group(['middleware' => 'cors'], function () {
-    Route::get('images/{model_id}', 'ImgAPIController@uploadFile');
-    Route::post('images/{model_id}', 'ImgAPIController@uploadFile');
+
+    Route::get('/images/{model_id}', 'ImgAPIController@uploadFile');
+    Route::post('/images/{model_id}', 'ImgAPIController@uploadFile');
     Route::post('/api/eliminar_imagen', 'ImgAPIController@deleteImagen');
 
     Route::get('/api/estados/', 'ApiController@estados');
@@ -38,4 +39,5 @@ Route::group(['middleware' => 'cors'], function () {
     Route::post('/api/actualizar_licencia', 'ApiController@actualizar_licencia');
     Route::post('/api/contactanos', 'ApiController@contactanos');
     Route::post('/api/verificar_session', 'ApiController@verificarSession');
+
 });
