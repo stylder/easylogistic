@@ -60,7 +60,7 @@
                 <a class="btn btn-default btn-danger deleteImg" ng-click="file.cancel(); borrarUnidad(file.name)">
                     <i class="fa fa-times"></i>
                 </a>
-                <img class="img-responsive img-thumbnail" ng-src="{{image_root+file.name}}" alt="">
+                <img class="img-responsive img-thumbnail" ng-if="!file.isUploading()"  ng-src="{{image_root+file.name}}" on-error-src="/img/logos-main/logo.png" alt="">
             </div>
         </div>
 
